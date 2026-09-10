@@ -1,0 +1,155 @@
+{
+  "dagId": "vigiar_manual_pipeline",
+  "runId": "publish_2021_2026_20260909T0220Z",
+  "runState": "success",
+  "startUtc": "2026-09-09 02:25:04.716792",
+  "endUtc": "2026-09-09 02:43:35.468099",
+  "maxActiveTasks": 1,
+  "taskCount": 11,
+  "edgeCount": 12,
+  "edges": [
+    {
+      "source": "validate_execution_environment",
+      "target": "run_dim_calendario"
+    },
+    {
+      "source": "validate_execution_environment",
+      "target": "run_dim_municipios"
+    },
+    {
+      "source": "validate_execution_environment",
+      "target": "run_dim_udh"
+    },
+    {
+      "source": "validate_execution_environment",
+      "target": "run_dim_cnes"
+    },
+    {
+      "source": "validate_execution_environment",
+      "target": "run_dim_cnes_udh"
+    },
+    {
+      "source": "validate_execution_environment",
+      "target": "run_fat_avs"
+    },
+    {
+      "source": "validate_execution_environment",
+      "target": "run_fat_clima"
+    },
+    {
+      "source": "validate_execution_environment",
+      "target": "run_fat_notificacoes"
+    },
+    {
+      "source": "validate_execution_environment",
+      "target": "run_fat_sinan"
+    },
+    {
+      "source": "validate_execution_environment",
+      "target": "run_fat_dieese"
+    },
+    {
+      "source": "run_dim_udh",
+      "target": "run_dim_cnes_udh"
+    },
+    {
+      "source": "run_dim_cnes",
+      "target": "run_dim_cnes_udh"
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "run_dim_calendario",
+      "state": "success",
+      "start_date": "2026-09-09 02:33:41.352205",
+      "end_date": "2026-09-09 02:33:47.586164",
+      "duration": 6.234,
+      "try_number": 1
+    },
+    {
+      "task_id": "run_dim_cnes",
+      "state": "success",
+      "start_date": "2026-09-09 02:25:38.698664",
+      "end_date": "2026-09-09 02:33:29.668440",
+      "duration": 470.969,
+      "try_number": 1
+    },
+    {
+      "task_id": "run_dim_cnes_udh",
+      "state": "success",
+      "start_date": "2026-09-09 02:34:02.723406",
+      "end_date": "2026-09-09 02:34:15.937306",
+      "duration": 13.214,
+      "try_number": 1
+    },
+    {
+      "task_id": "run_dim_municipios",
+      "state": "success",
+      "start_date": "2026-09-09 02:33:48.506173",
+      "end_date": "2026-09-09 02:34:01.739444",
+      "duration": 13.233,
+      "try_number": 1
+    },
+    {
+      "task_id": "run_dim_udh",
+      "state": "success",
+      "start_date": "2026-09-09 02:33:30.512462",
+      "end_date": "2026-09-09 02:33:40.984426",
+      "duration": 10.472,
+      "try_number": 2
+    },
+    {
+      "task_id": "run_fat_avs",
+      "state": "success",
+      "start_date": "2026-09-09 02:34:16.593688",
+      "end_date": "2026-09-09 02:34:25.971613",
+      "duration": 9.378,
+      "try_number": 1
+    },
+    {
+      "task_id": "run_fat_clima",
+      "state": "success",
+      "start_date": "2026-09-09 02:34:26.629207",
+      "end_date": "2026-09-09 02:34:44.160807",
+      "duration": 17.532,
+      "try_number": 1
+    },
+    {
+      "task_id": "run_fat_dieese",
+      "state": "success",
+      "start_date": "2026-09-09 02:43:28.191093",
+      "end_date": "2026-09-09 02:43:35.019381",
+      "duration": 6.828,
+      "try_number": 1
+    },
+    {
+      "task_id": "run_fat_notificacoes",
+      "state": "success",
+      "start_date": "2026-09-09 02:34:44.628454",
+      "end_date": "2026-09-09 02:35:07.356702",
+      "duration": 22.729,
+      "try_number": 1
+    },
+    {
+      "task_id": "run_fat_sinan",
+      "state": "success",
+      "start_date": "2026-09-09 02:35:12.402641",
+      "end_date": "2026-09-09 02:43:27.968892",
+      "duration": 495.566,
+      "try_number": 1
+    },
+    {
+      "task_id": "validate_execution_environment",
+      "state": "success",
+      "start_date": "2026-09-09 02:25:04.764282",
+      "end_date": "2026-09-09 02:25:20.336207",
+      "duration": 15.572,
+      "try_number": 1
+    }
+  ],
+  "sourceHashes": {
+    "airflow/dags/vigiar_commands.py": "7d6c61c1f23ec4d1f12e85a4c0483a11747f10d8f5bcbd1cc202ef981a5775f8",
+    "airflow/dags/vigiar_manual.py": "9e5b7e6f60912a541a70b72573dc6e2fbbdfc9826430e234d5e2a86d17d3b49a"
+  },
+  "note": "DAG reconstructed from archived code, with task status and duration from archived Airflow metadata; not a screenshot or live monitor."
+}

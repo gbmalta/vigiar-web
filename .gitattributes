@@ -1,0 +1,4 @@
+* text=auto eol=lf
+public/** -text
+*.pdf binary
+*.woff2 binary

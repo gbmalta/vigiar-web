@@ -1,0 +1,19 @@
+{
+  "date": "2026-09-09",
+  "sourceSiteCommit": "f96c9f5e918db355529370bb489a68e9fb483ead",
+  "dataRelease": "publish_2021_2026_20260909T0220Z",
+  "dataUnchanged": true,
+  "reports": {
+    "VIGIAR_Arquitetura_Metricas_20260909.pdf": {
+      "pages": 7,
+      "sha256": "c3c58173d4613b623d9e645973f1a93a95e4ec586f1a5de4cb3ae116bd716292"
+    },
+    "VIGIAR_Relatorio_Operacional_20260909.pdf": {
+      "pages": 4,
+      "sha256": "bd83a8639f3f68d8565e9f4392447e1a6562a4832abd543ab5f3bd221c463a77"
+    }
+  },
+  "reportChanges": "Account-specific administrative passages removed from the public copies. Research data, coverage, methodology, task results and cost estimates preserved. Public edition identified in every page footer.",
+  "reportReview": "Text extraction checked after redaction and all 11 rendered pages visually reviewed.",
+  "webValidation": "TypeScript, lint, data integrity and HTTP asset checks. No interactive browser test performed."
+}

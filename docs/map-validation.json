@@ -1,0 +1,288 @@
+{
+  "sourceHashesVerified": [
+    "dim_cnes.parquet",
+    "dim_cnes_udh.parquet",
+    "dim_calendario.parquet",
+    "dim_municipios.parquet",
+    "dim_udh.parquet",
+    "fat_avs.parquet",
+    "fat_clima.parquet",
+    "fat_dieese.parquet",
+    "fat_notificacoes.parquet",
+    "2021_part_1.parquet",
+    "2022_part_1.parquet",
+    "2023_part_1.parquet",
+    "2024_1_part_1.parquet",
+    "2024_1_part_2.parquet",
+    "2024_1_part_3.parquet",
+    "2024_2_part_1.parquet",
+    "2025_part_1.parquet",
+    "2026_part_1.parquet"
+  ],
+  "geometryRepairsForDisplayOnly": [
+    "1330455701002",
+    "1330455701004",
+    "1330455701005",
+    "1330455701013",
+    "1330455701023",
+    "1330455701046",
+    "1330455701056",
+    "1330455701057",
+    "1330455701117",
+    "1330455701119",
+    "1330455701122",
+    "1330455702006",
+    "1330455702020",
+    "1330455702022",
+    "1330455702038",
+    "1330455702051",
+    "1330455702052",
+    "1330455702065",
+    "1330455703049",
+    "1330455703051",
+    "1330455704010",
+    "1330455704028",
+    "1330455705025",
+    "1330455706003",
+    "1330455706039",
+    "1330455708024",
+    "1330455708037",
+    "1330455708089",
+    "1330455709002",
+    "1330455709003",
+    "1330455709039",
+    "1330455709060",
+    "1330455709068",
+    "1330455709069",
+    "1330455710013",
+    "1330455710014",
+    "1330455710034",
+    "1330455710292",
+    "1330455710297",
+    "1431490200142",
+    "1431490200183",
+    "1431490200213",
+    "1431490200262",
+    "1431490200290",
+    "1431490200292",
+    "1130260300006",
+    "1130260300025",
+    "1130260300045",
+    "1130260300162",
+    "1130260300166",
+    "1261160600040",
+    "1261160600041",
+    "1510340300004",
+    "1510340300005",
+    "1510340300035",
+    "1510340300052",
+    "1510340300098"
+  ],
+  "annual": {
+    "2021": {
+      "total": 1009083,
+      "mapped": 1009083,
+      "unmapped": 0,
+      "municipalities": 4124,
+      "min": "2021-01-03",
+      "max": "2021-12-31"
+    },
+    "2022": {
+      "total": 1395153,
+      "mapped": 1395153,
+      "unmapped": 0,
+      "municipalities": 4604,
+      "min": "2022-01-01",
+      "max": "2022-12-31"
+    },
+    "2023": {
+      "total": 1508936,
+      "mapped": 1508936,
+      "unmapped": 0,
+      "municipalities": 4537,
+      "min": "2023-01-01",
+      "max": "2023-12-31"
+    },
+    "2024": {
+      "total": 6471520,
+      "mapped": 6471520,
+      "unmapped": 0,
+      "municipalities": 5247,
+      "min": "2024-01-01",
+      "max": "2024-12-31"
+    },
+    "2025": {
+      "total": 1716415,
+      "mapped": 1716415,
+      "unmapped": 0,
+      "municipalities": 4834,
+      "min": "2025-01-01",
+      "max": "2025-12-31"
+    },
+    "2026": {
+      "total": 405781,
+      "mapped": 405763,
+      "unmapped": 18,
+      "municipalities": 4224,
+      "min": "2026-01-01",
+      "max": "2026-06-29"
+    }
+  },
+  "climate": {
+    "2021": {
+      "municipalities": 542,
+      "min": "2021-01-03",
+      "max": "2022-01-01",
+      "weeks": 52
+    },
+    "2022": {
+      "municipalities": 540,
+      "min": "2022-01-02",
+      "max": "2022-12-31",
+      "weeks": 52
+    },
+    "2023": {
+      "municipalities": 544,
+      "min": "2023-01-01",
+      "max": "2023-12-30",
+      "weeks": 52
+    },
+    "2024": {
+      "municipalities": 544,
+      "min": "2023-12-31",
+      "max": "2024-11-30",
+      "weeks": 48
+    },
+    "2025": {
+      "municipalities": 571,
+      "min": "2024-12-29",
+      "max": "2025-12-27",
+      "weeks": 52
+    },
+    "2026": {
+      "municipalities": 603,
+      "min": "2025-12-28",
+      "max": "2026-02-28",
+      "weeks": 9
+    }
+  },
+  "cnes": {
+    "reference": "2026-07",
+    "total": 631973,
+    "mapped": 631619,
+    "linked": 39980
+  },
+  "udhCounts": {
+    "3304557": 1136,
+    "4314902": 335,
+    "1302603": 200,
+    "2611606": 194,
+    "5103403": 96
+  },
+  "assets": {
+    "climate-2021.json": {
+      "bytes": 22867,
+      "sha256": "5d38b9503c2cfc95148ac94bc87b4be4159cf81f4cd13080bce769adb3220f49"
+    },
+    "climate-2022.json": {
+      "bytes": 23196,
+      "sha256": "ab3153a2c2ef77a9f4e97336829628c7e47eae4f92afcf023f2ee3487c4cca2f"
+    },
+    "climate-2023.json": {
+      "bytes": 23507,
+      "sha256": "1a0c4f1d27c0052525fc59ebb7e7c4d815fd16cec2c91e7d21a0da816cf132d7"
+    },
+    "climate-2024.json": {
+      "bytes": 23414,
+      "sha256": "fb2004121f27e676f3712d4ecb94c589028c87ff892c2aca25c8d7806d2e484c"
+    },
+    "climate-2025.json": {
+      "bytes": 24384,
+      "sha256": "c967a450bc60fc3446450dcd6d98aad26a01bb53699dbbbdaede2be914e55e45"
+    },
+    "climate-2026.json": {
+      "bytes": 24207,
+      "sha256": "b9b0b5284ecdeef118a93df8d527e84e9f6fbb6a568ec5bc1c0ebceb7ee51bbb"
+    },
+    "cnes.json": {
+      "bytes": 72422,
+      "sha256": "1e4c041fb95ea3ad489d86508b0c6db3ce69152cf18218a5425002af50363312"
+    },
+    "facilities-1302603.json": {
+      "bytes": 169790,
+      "sha256": "d8541b2ef8ce09632966ea4e06d68df39260f043b2c82da264b06c23fe6e6660"
+    },
+    "facilities-2611606.json": {
+      "bytes": 222456,
+      "sha256": "6cc19073ca67e269152c29a354556d1a1c8b81c8ef661dcd73c60c77969bfc3d"
+    },
+    "facilities-3304557.json": {
+      "bytes": 1732646,
+      "sha256": "76c332fe203e06aab88668851f8968b8e312ceb6693ea78763689683c806aeb4"
+    },
+    "facilities-4314902.json": {
+      "bytes": 731937,
+      "sha256": "bd4ea0b0a71afd8d5a215a5256d6f094ab6321d1e1d04b5ee86ecf5e8f40a7ac"
+    },
+    "facilities-5103403.json": {
+      "bytes": 193981,
+      "sha256": "50417cf4f6848c865a061b7e37b283d50b5a8dbb0df6617361b2200fd684a71f"
+    },
+    "metadata.json": {
+      "bytes": 1949,
+      "sha256": "81eecd4ec53c3585c4cd5cd548b357ef31c94f9130b76507d02f0334af84dbb6"
+    },
+    "municipalities.json": {
+      "bytes": 446431,
+      "sha256": "dc571f6b7e677640e59143574f84c7a5421a4e1e6ab9af834fd963abc841e746"
+    },
+    "notifications-2021.json": {
+      "bytes": 53265,
+      "sha256": "4e0642763ffdf52e4217962c23401238b5e3bf9265ed3f523b027959910d121c"
+    },
+    "notifications-2022.json": {
+      "bytes": 60250,
+      "sha256": "d503b3c53ddd10d443cc9ea105a06a9bc07091fd2b97ccf998825f155171fe44"
+    },
+    "notifications-2023.json": {
+      "bytes": 58976,
+      "sha256": "90bdf833b2c34f4c3c583b9e0ab7fb854e7383291b2e9cc83ea555d0b544fa5c"
+    },
+    "notifications-2024.json": {
+      "bytes": 70903,
+      "sha256": "4fd1b14607bad5ac14c01f1cdd186368fcd57e390838abd1484da56771c0073e"
+    },
+    "notifications-2025.json": {
+      "bytes": 62873,
+      "sha256": "03451344b34df71500ba996f9cc1c4acee3d6723d11dbd7ad074c1b6c08065b5"
+    },
+    "notifications-2026.json": {
+      "bytes": 53407,
+      "sha256": "3eccd2ee43a9e450a500e2cfc09809d773ddb97156a546f41d9fcbb23d842f3c"
+    },
+    "series.json": {
+      "bytes": 160949,
+      "sha256": "b18273c1dafef760fd01abf18012741de1567dc506bfc3feb88633950c6b18ac"
+    },
+    "udh-1302603.geojson": {
+      "bytes": 217105,
+      "sha256": "bed45cb73f26cbf0be753f3d1978d08a32a5773cd2c0d4d6a60c20ca4c23ac1e"
+    },
+    "udh-2611606.geojson": {
+      "bytes": 165361,
+      "sha256": "3ee24aab313ecbfa7693b0e84e329becb0a38762a77396987cb9d2810ecbd06e"
+    },
+    "udh-3304557.geojson": {
+      "bytes": 1156120,
+      "sha256": "c7b7c771ec0877719ff59b4df1f2542f6ffd5cc9cfcce313fde6b28ed5b38eea"
+    },
+    "udh-4314902.geojson": {
+      "bytes": 256827,
+      "sha256": "811b167460f2365b7a16e0f8db2c5e641b18de4815b5af7a52d454d3e9e389bd"
+    },
+    "udh-5103403.geojson": {
+      "bytes": 115274,
+      "sha256": "1e0ed644fc196d010c2362fc090543e4633d164354fa03087f961a9b48b607c3"
+    }
+  }
+}

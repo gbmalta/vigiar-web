@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "checks": [
+    "2021: annual totals and municipal time series reconciled",
+    "2022: annual totals and municipal time series reconciled",
+    "2023: annual totals and municipal time series reconciled",
+    "2024: annual totals and municipal time series reconciled",
+    "2025: annual totals and municipal time series reconciled",
+    "2026: annual totals and municipal time series reconciled",
+    "All 1961 display geometries valid",
+    "39980 facility coordinates reconcile to UDH totals",
+    "5570 representative municipal points within Brazil bounds",
+    "Distributed column allowlist excludes patient records and contacts",
+    "Two report PDFs present"
+  ],
+  "notifications": 12506888,
+  "mapped": 12506870,
+  "unmapped": {
+    "municipality": "5101837",
+    "name": "Boa Esperança do Norte",
+    "notifications2026": 18,
+    "reason": "Current IBGE simplified mesh omits this municipality; direct municipality request returned HTTP 500"
+  },
+  "initialDataBytes": 662736,
+  "allDataAssetsBytes": 6144497
+}

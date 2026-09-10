@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="1512" viewBox="0 0 460 1512" role="img" aria-labelledby="title desc">
+<title id="title">DAG vigiar_manual_pipeline — carga 2021 a 2026</title>
+<desc id="desc">Onze tarefas concluídas. Validar ambiente antecede as dez tarefas de dados. Vínculo CNES mais UDH também depende de Áreas UDH e Estabelecimentos CNES. Uma tarefa ativa por vez; os ramos não indicam execução simultânea.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#7a9391"/></marker><marker id="join-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#b77d2c"/></marker></defs>
+<rect width="460" height="1512" rx="18" fill="#f6f8f6"/>
+<g fill="none" stroke="#7a9391" stroke-width="2">
+<path d="M226 144 V178 H24 V1354"/>
+<path data-source="validate_execution_environment" data-target="run_dim_calendario" d="M24 258.0 H54" marker-end="url(#arrow)"/>
+<path data-source="validate_execution_environment" data-target="run_dim_municipios" d="M24 374.0 H54" marker-end="url(#arrow)"/>
+<path data-source="validate_execution_environment" data-target="run_dim_udh" d="M24 490.0 H54" marker-end="url(#arrow)"/>
+<path data-source="validate_execution_environment" data-target="run_dim_cnes" d="M24 606.0 H54" marker-end="url(#arrow)"/>
+<path data-source="validate_execution_environment" data-target="run_dim_cnes_udh" d="M24 1354.0 H54" marker-end="url(#arrow)"/>
+<path data-source="validate_execution_environment" data-target="run_fat_avs" d="M24 722.0 H54" marker-end="url(#arrow)"/>
+<path data-source="validate_execution_environment" data-target="run_fat_clima" d="M24 838.0 H54" marker-end="url(#arrow)"/>
+<path data-source="validate_execution_environment" data-target="run_fat_notificacoes" d="M24 954.0 H54" marker-end="url(#arrow)"/>
+<path data-source="validate_execution_environment" data-target="run_fat_sinan" d="M24 1070.0 H54" marker-end="url(#arrow)"/>
+<path data-source="validate_execution_environment" data-target="run_fat_dieese" d="M24 1186.0 H54" marker-end="url(#arrow)"/>
+<path data-source="run_dim_udh" data-target="run_dim_cnes_udh" d="M398 490.0 H418 V1328 H398" stroke="#b77d2c" marker-end="url(#join-arrow)"/>
+<path data-source="run_dim_cnes" data-target="run_dim_cnes_udh" d="M398 606.0 H438 V1380 H398" stroke="#b77d2c" marker-end="url(#join-arrow)"/>
+</g>
+<g data-task-id="validate_execution_environment">
+<rect x="54" y="28" width="344" height="116" rx="12" fill="#163e40" stroke="#cdded5"/>
+<text x="70" y="57" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#ffffff">Validar ambiente</text>
+<text x="70" y="82" font-family="Arial,sans-serif" font-size="17" fill="#c2ded3">validate_execution_environment</text>
+<text x="70" y="108" font-family="Arial,sans-serif" font-size="17" fill="#c2ded3">Sucesso · tentativa 1</text>
+<text x="382" y="108" text-anchor="end" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#ffffff">16s</text>
+</g>
+<g data-task-id="run_dim_calendario">
+<rect x="54" y="210" width="344" height="96" rx="12" fill="#ffffff" stroke="#cdded5"/>
+<text x="70" y="239" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#183f3c">Calendário</text>
+<text x="70" y="264" font-family="Arial,sans-serif" font-size="17" fill="#5b7670">run_dim_calendario</text>
+<text x="70" y="290" font-family="Arial,sans-serif" font-size="17" fill="#5b7670">Sucesso · tentativa 1</text>
+<text x="382" y="290" text-anchor="end" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#183f3c">6s</text>
+</g>
+<g data-task-id="run_dim_municipios">
+<rect x="54" y="326" width="344" height="96" rx="12" fill="#ffffff" stroke="#cdded5"/>
+<text x="70" y="355" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#183f3c">Municípios</text>
+<text x="70" y="380" font-family="Arial,sans-serif" font-size="17" fill="#5b7670">run_dim_municipios</text>
+<text x="70" y="406" font-family="Arial,sans-serif" font-size="17" fill="#5b7670">Sucesso · tentativa 1</text>
+<text x="382" y="406" text-anchor="end" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#183f3c">13s</text>
+</g>
+<g data-task-id="run_dim_udh">
+<rect x="54" y="442" width="344" height="96" rx="12" fill="#ffffff" stroke="#cdded5"/>
+<text x="70" y="471" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#183f3c">Áreas UDH</text>
+<text x="70" y="496" font-family="Arial,sans-serif" font-size="17" fill="#5b7670">run_dim_udh</text>
+<text x="70" y="522" font-family="Arial,sans-serif" font-size="17" fill="#5b7670">Sucesso · tentativa 2</text>
+<text x="382" y="522" text-anchor="end" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#183f3c">10s</text>
+</g>
+<g data-task-id="run_dim_cnes">
+<rect x="54" y="558" width="344" height="96" rx="12" fill="#ffffff" stroke="#cdded5"/>
+<text x="70" y="587" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#183f3c">Estabelecimentos CNES</text>
+<text x="70" y="612" font-family="Arial,sans-serif" font-size="17" fill="#5b7670">run_dim_cnes</text>
+<text x="70" y="638" font-family="Arial,sans-serif" font-size="17" fill="#5b7670">Sucesso · tentativa 1</text>
+<text x="382" y="638" text-anchor="end" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#183f3c">7m 51s</text>
+</g>
+<g data-task-id="run_fat_avs">
+<rect x="54" y="674" width="344" height="96" rx="12" fill="#ffffff" stroke="#cdded5"/>
+<text x="70" y="703" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#183f3c">Vulnerabilidade social</text>
+<text x="70" y="728" font-family="Arial,sans-serif" font-size="17" fill="#5b7670">run_fat_avs</text>
+<text x="70" y="754" font-family="Arial,sans-serif" font-size="17" fill="#5b7670">Sucesso · tentativa 1</text>
+<text x="382" y="754" text-anchor="end" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#183f3c">9s</text>
+</g>
+<g data-task-id="run_fat_clima">
+<rect x="54" y="790" width="344" height="96" rx="12" fill="#ffffff" stroke="#cdded5"/>
+<text x="70" y="819" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#183f3c">Clima</text>
+<text x="70" y="844" font-family="Arial,sans-serif" font-size="17" fill="#5b7670">run_fat_clima</text>
+<text x="70" y="870" font-family="Arial,sans-serif" font-size="17" fill="#5b7670">Sucesso · tentativa 1</text>
+<text x="382" y="870" text-anchor="end" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#183f3c">18s</text>
+</g>
+<g data-task-id="run_fat_notificacoes">
+<rect x="54" y="906" width="344" height="96" rx="12" fill="#ffffff" stroke="#cdded5"/>
+<text x="70" y="935" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#183f3c">Notificações</text>
+<text x="70" y="960" font-family="Arial,sans-serif" font-size="17" fill="#5b7670">run_fat_notificacoes</text>
+<text x="70" y="986" font-family="Arial,sans-serif" font-size="17" fill="#5b7670">Sucesso · tentativa 1</text>
+<text x="382" y="986" text-anchor="end" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#183f3c">23s</text>
+</g>
+<g data-task-id="run_fat_sinan">
+<rect x="54" y="1022" width="344" height="96" rx="12" fill="#ffffff" stroke="#cdded5"/>
+<text x="70" y="1051" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#183f3c">SINAN detalhado</text>
+<text x="70" y="1076" font-family="Arial,sans-serif" font-size="17" fill="#5b7670">run_fat_sinan</text>
+<text x="70" y="1102" font-family="Arial,sans-serif" font-size="17" fill="#5b7670">Sucesso · tentativa 1</text>
+<text x="382" y="1102" text-anchor="end" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#183f3c">8m 16s</text>
+</g>
+<g data-task-id="run_fat_dieese">
+<rect x="54" y="1138" width="344" height="96" rx="12" fill="#ffffff" stroke="#cdded5"/>
+<text x="70" y="1167" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#183f3c">Cesta básica · DIEESE</text>
+<text x="70" y="1192" font-family="Arial,sans-serif" font-size="17" fill="#5b7670">run_fat_dieese</text>
+<text x="70" y="1218" font-family="Arial,sans-serif" font-size="17" fill="#5b7670">Sucesso · tentativa 1</text>
+<text x="382" y="1218" text-anchor="end" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#183f3c">7s</text>
+</g>
+<g data-task-id="run_dim_cnes_udh">
+<rect x="54" y="1300" width="344" height="108" rx="12" fill="#ffffff" stroke="#b77d2c"/>
+<text x="70" y="1329" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#183f3c">Vínculo CNES + UDH</text>
+<text x="70" y="1354" font-family="Arial,sans-serif" font-size="17" fill="#5b7670">run_dim_cnes_udh</text>
+<text x="70" y="1380" font-family="Arial,sans-serif" font-size="17" fill="#5b7670">Sucesso · tentativa 1</text>
+<text x="382" y="1380" text-anchor="end" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#183f3c">13s</text>
+</g>
+<g font-family="Arial,sans-serif" font-size="17" fill="#52716a"><path d="M54 1452 H89" stroke="#b77d2c" stroke-width="3"/><text x="100" y="1458">Dependências adicionais do vínculo</text><text x="54" y="1487">Setas = pré-requisitos; não ordem cronológica.</text></g>
+</svg>
