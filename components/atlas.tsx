@@ -390,8 +390,8 @@ export function Atlas() {
             <span>Observatório territorial</span>
           </div>
         </div>
-        <span className="header-note">BASE HISTÓRICA · 2021—2026</span>
-        <Button variant="outline" onClick={() => setInfoOpen(true)}>
+        <a className="atlas-metrics-link" href="#metricas">Métricas do artigo <ArrowUpRight size={16} /></a>
+        <Button variant="outline" aria-label="Dados e relatórios" onClick={() => setInfoOpen(true)}>
           <Info />
           <span>Dados e relatórios</span>
         </Button>

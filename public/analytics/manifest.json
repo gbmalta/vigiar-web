@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "runId": "publish_2021_2026_20260909T0220Z",
+  "files": {
+    "analysis.json": "c1668b359a27c3e791a6b20ecb575f49de5a821e79f25362a6a443000479630f",
+    "completeness.csv": "53b7129089035257b474d9d259329b940297278215adcbc16b96a7285b8eec78",
+    "method.json": "fec1e80006134c25b74851474219ded12834b3713cbb8a77427e99eace8bf854",
+    "municipality-week.csv": "e21a05ffee9d0c97e5b5cf3fd2256964bcb7631a8037799de9732bdff28a47dd",
+    "panel.json": "ca1753e9434399f16992d8f6201768d7a8ec3c007db597043ce0d506e561cd33",
+    "quality.json": "67d8327467d0d42e4157741a3632357566d51ab8cbdc5c63e9e0cb6ccd8be5c9",
+    "woe-iv.csv": "780d2024246deff9d263c425fce3c477ead2888ffe1cd4b0c4a861efa5444107"
+  }
+}

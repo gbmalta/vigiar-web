@@ -1,0 +1,5 @@
+# pandas/NumPy suffice for estimator tests; PyArrow/Shapely regenerate from private Parquet inputs.
+numpy==2.4.6
+pandas==3.0.5
+pyarrow==25.0.1
+shapely==2.1.2

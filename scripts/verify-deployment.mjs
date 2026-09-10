@@ -38,11 +38,11 @@ while (resources.size) {
     const text = response.bytes.toString();
     const patterns = pathname.endsWith('.css')
       ? [/url\(["']?([^)'"\s]+)["']?\)/g]
-      : [/import\(["']([^"']+)["']\)/g, /from\s*["']([^"']+)["']/g];
+      : [/import\(["']([^"']+)["']\)/g, /from\s*["']([^"']+)["']/g, /["'](assets\/[^"']+\.(?:js|css))["']/g];
     for (const pattern of patterns) for (const [, dependency] of text.matchAll(pattern)) {
       if (dependency.startsWith('data:') || dependency.startsWith('#')) continue;
-      if (pathname.endsWith('.js') && !/^(?:\.\.?\/|\/).+\.(?:m?js|css)(?:\?.*)?$/.test(dependency)) continue;
-      const asset = new URL(dependency, url);
+      if (pathname.endsWith('.js') && !/^(?:\.\.?\/|\/|assets\/).+\.(?:m?js|css)(?:\?.*)?$/.test(dependency)) continue;
+      const asset = new URL(dependency, dependency.startsWith('assets/') ? base : url);
       if (asset.origin === base.origin) {
         assert(asset.pathname.startsWith(base.pathname), `Dependency outside the Pages base: ${asset}`);
         resources.add(asset.href);

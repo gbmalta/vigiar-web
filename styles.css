@@ -2,6 +2,12 @@
 @import 'tw-animate-css';
 @import 'shadcn/tailwind.css';
 
+.atlas-metrics-link { display: flex; align-items: center; gap: 6px; margin-left: auto; color: #176b60; font-size: 13px; font-weight: 600; text-decoration: none; min-height: 42px; padding: 8px 12px; border: 1px solid #c4d7cb; border-radius: 7px; background: #f2f7ef; }
+.atlas-metrics-link:hover { background: #e2eee2; }
+.atlas-metrics-link:focus-visible { outline: 3px solid #ba8038; outline-offset: 3px; }
+@media (max-width: 760px) { .atlas-metrics-link { padding: 7px; font-size: 11px; gap: 3px; white-space: nowrap; } }
+@media (max-width: 540px) { .atlas-header [data-slot='button'] > span { display: none; } .atlas-header .brand span:not(.brand-mark) { max-width: 120px; } }
+
 .dag-overview { margin: 24px 0 28px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
 .dag-heading-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 .dag-heading-row h3 { display: flex; align-items: center; gap: 8px; margin: 0 !important; }

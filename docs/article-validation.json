@@ -1,0 +1,27 @@
+{
+  "edition": "article-metrics-20260909",
+  "sourceRun": "publish_2021_2026_20260909T0220Z",
+  "sourceFilesVerified": 18,
+  "notifications": 12506888,
+  "sinanPhysicalRows": 12493876,
+  "municipalityWeeks": 1430,
+  "developmentRows": 1025,
+  "evaluationRows": 260,
+  "evaluationEvents": 59,
+  "purgedRows": 20,
+  "features": 45,
+  "scientificUnitTests": { "passed": 10, "failed": 0 },
+  "originalMapChecks": "passed: 26 original files, annual totals, 39980 CNES links, DAG and two existing reports",
+  "analyticsChecks": "passed: manifests, public schema, target horizons, Q80, purge, WOE/IV and quality denominators",
+  "lint": "passed",
+  "productionBuild": "passed",
+  "npmAuditVulnerabilities": 0,
+  "localHttpVerification": { "status": "passed", "publicFiles": 40, "applicationAssets": 20 },
+  "browserReview": {
+    "surface": "local production preview in Codex browser",
+    "checks": ["four sections render", "year/scope and delay controls", "municipality selection", "feature block filter and selection", "method and download links", "return to map", "desktop layout", "390px mobile layout without page overflow"],
+    "limitations": "Interactive preview checks are not an exhaustive cross-browser accessibility audit. CI HTTP checks validate bytes and paths, not every interaction."
+  },
+  "pdfReview": { "pages": 10, "status": "all pages rendered and visually inspected; no clipping or missing glyphs" },
+  "publicationVerification": "The verify-publication job records the live result for each deployed commit in GitHub Actions."
+}
