@@ -8,5 +8,15 @@ export default defineConfig({
   plugins: [react()],
   resolve: { alias: { '@': fileURLToPath(new URL('.', import.meta.url)) } },
   css: { postcss: { plugins: [tailwindcss()] } },
-  build: { sourcemap: false },
+  build: {
+    sourcemap: false,
+    rollupOptions: {
+      input: {
+        main: fileURLToPath(new URL('./index.html', import.meta.url)),
+        meeting: fileURLToPath(
+          new URL('./health-meeting.html', import.meta.url),
+        ),
+      },
+    },
+  },
 });

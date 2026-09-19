@@ -1,5 +1,13 @@
 # VIGIAR · Mapa histórico
 
+[Health Meeting · versão simplificada](https://gbmalta.github.io/vigiar-web/health-meeting.html)
+
+A edição do Health Meeting tem visão geral, predições de quatro semanas e mapa
+municipal para as cinco cidades do estudo. Usa 520 previsões retrospectivas de
+2024–2025; não apresenta alertas atuais. Consulte
+[`docs/health-meeting.md`](docs/health-meeting.md) para o recorte, execução local e
+revisão editorial opcional com TypeSafe. O atlas original permanece nesta entrada.
+
 [Abrir o mapa público](https://gbmalta.github.io/vigiar-web/)
 
 [Métricas do artigo](https://gbmalta.github.io/vigiar-web/#metricas) · [Relatório da implementação](https://gbmalta.github.io/vigiar-web/research/VIGIAR_Relatorio_Metricas_Artigo.pdf)
