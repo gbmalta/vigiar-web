@@ -29,6 +29,16 @@ MAE e WAPE calculados no navegador, com verificação independente contra os val
 
 `python scripts/export-health-meeting.py` regenera o pacote usando os artefatos locais, verifica hashes de origem e reconcilia o MAE antes de exportar. A workflow não precisa desses arquivos locais: verifica os agregados versionados.
 
+## Histórico dinâmico e regiões
+
+O mapa exibe minigráficos de previsto (verde tracejado) e observado (cinza), com as últimas 26 semanas de referência disponíveis até a semana escolhida. As duas linhas usam a mesma escala iniciada em zero dentro de cada gráfico; a escala é própria por cidade e recorte, apropriada à leitura de tendências, não à comparação direta de alturas entre cidades. Os cartões têm conectores às coordenadas municipais e posicionamento para evitar sobreposição. Podem ser ocultados.
+
+O controle temporal sincroniza cartões, indicadores e detalhes. Reproduzir avança uma semana a cada 1,2 segundo; inicia no começo quando acionado no final; para ao terminar, ao manipular a barra, ao sair da aba ou ao ocultar a página. É reprodução retrospectiva, não atualização ao vivo. Mudanças de semana não reposicionam a câmera nem alteram os atributos regionais.
+
+Clicar no ponto, no minigráfico, na lista ou no seletor da cidade aproxima o mapa e carrega seu GeoJSON público. O botão Todas as cidades retorna à visão nacional. Estão disponíveis 1.961 UDHs (200 Manaus, 194 Recife, 1.136 Rio de Janeiro, 335 Porto Alegre, 96 Cuiabá). A busca por nome/código e a lista oferecem alternativa ao clique no polígono. O detalhe mostra IVS, IDHM, renda per capita (referência 2010) e estabelecimentos CNES vinculados (jul/2026); a coloração troca entre essas quatro variáveis. Ausência é distinta de zero.
+
+UDHs não equivalem necessariamente a bairros. Os valores regionais são fotografias estáticas e não predições de dengue. Não há série prevista ou observada por UDH nesta versão. Os arquivos `public/data/udh-*.geojson` são os mesmos agregados já publicados no atlas, com hashes validados por `npm run check`; não houve nova extração nem rateio das previsões municipais.
+
 ## TypeSafe opcional
 
 `npm run review:meeting` executa revisão semântica de afirmações editoriais com Choice, via HTTP API v1, usando `TYPESAFE_API_KEY` somente no ambiente do processo. Envia apenas definições e metadados agregados. Salva o resultado em `tmp/`, nunca no pacote público; inclui duas afirmações falsas como controles. Não altera textos ou números automaticamente e não confunde confiança semântica com incerteza epidemiológica. Não foi executado sem uma chave configurada.

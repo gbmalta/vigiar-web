@@ -2,6 +2,12 @@ import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { metrics, trend, change } from '../src/health-meeting/data.ts';
+import {
+  historyWindow,
+  sparkline,
+  placeCards,
+  regionColor,
+} from '../src/health-meeting/map-data.ts';
 
 const read = (name) =>
   readFileSync(new URL(`../public/health-meeting/${name}`, import.meta.url));
@@ -21,6 +27,85 @@ assert.equal(
 assert.equal(data.retrospective, true);
 assert.equal(data.previouslyExplored, true);
 assert.equal(data.intervalAvailable, false);
+let regions = 0;
+for (const city of data.cities) {
+  const geo = JSON.parse(
+    readFileSync(
+      new URL(`../public/data/udh-${city.id}.geojson`, import.meta.url),
+    ),
+  );
+  regions += geo.features.length;
+  assert.equal(
+    new Set(geo.features.map((f) => f.properties.id)).size,
+    geo.features.length,
+  );
+  for (const { properties: r } of geo.features) {
+    assert.equal(r.city, city.id);
+    for (const key of ['ivs', 'idhm'])
+      assert(
+        r[key] === null ||
+          (Number.isFinite(r[key]) && r[key] >= 0 && r[key] <= 1),
+      );
+    for (const key of ['income', 'cnes'])
+      assert(r[key] === null || (Number.isFinite(r[key]) && r[key] >= 0));
+    assert.equal(
+      Object.hasOwn(r, 'predicted'),
+      false,
+      'Never derive predictions for UDHs',
+    );
+  }
+}
+assert.equal(regions, 1961);
+assert.equal(regionColor({ ivs: null }, 'ivs'), '#c4c9c6');
+assert.notEqual(
+  regionColor({ cnes: 0 }, 'cnes'),
+  regionColor({ cnes: null }, 'cnes'),
+);
+for (const city of data.cities) {
+  for (const week of ['2024-01-07', '2024-06-30', '2025-12-28']) {
+    const series = historyWindow(data.predictions, city.id, week);
+    assert(series.length > 0 && series.length <= 26);
+    assert(series.every((r) => r.city === city.id && r.week <= week));
+    const shape = sparkline(series);
+    assert(
+      shape.max >=
+        Math.max(...series.flatMap((r) => [r.observed, r.predicted])),
+    );
+    assert(!/NaN|Infinity/.test(shape.predicted + shape.observed));
+    assert(shape.predictedEnd.y >= 3 && shape.predictedEnd.y <= 31);
+  }
+}
+assert.equal(sparkline([]).predictedEnd, null);
+assert.equal(sparkline([{ predicted: 0, observed: 0 }]).max, 1);
+const placed = placeCards(
+  [
+    { id: 'manaus', x: 225, y: 133 },
+    { id: 'recife', x: 369, y: 164 },
+    { id: 'rio', x: 321, y: 252 },
+    { id: 'poa', x: 277, y: 298 },
+    { id: 'cuiaba', x: 250, y: 207 },
+  ],
+  593,
+  430,
+  137,
+  83,
+);
+for (const [i, card] of placed.entries()) {
+  assert(
+    card.left >= 0 &&
+      card.top >= 0 &&
+      card.left + 137 <= 593 &&
+      card.top + 83 <= 430,
+  );
+  for (const other of placed.slice(i + 1))
+    assert(
+      card.left + 137 <= other.left ||
+        other.left + 137 <= card.left ||
+        card.top + 83 <= other.top ||
+        other.top + 83 <= card.top,
+      'Map charts overlap',
+    );
+}
 const DAY = 86400000;
 for (const row of data.predictions) {
   assert(data.cities.some((c) => c.id === row.city));

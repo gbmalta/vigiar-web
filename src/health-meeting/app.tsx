@@ -1,4 +1,11 @@
-import { lazy, Suspense, useEffect, useMemo, useState } from 'react';
+import {
+  lazy,
+  Suspense,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
 import {
   Activity,
   ArrowDownToLine,
@@ -64,6 +71,11 @@ function Dashboard({ data }: { data: MeetingData }) {
       : 'overview',
   );
   const [cityId, setCity] = useState('3304557');
+  const [focusCity, setFocusCity] = useState<string | null>(null);
+  const selectCity = useCallback((id: string) => {
+    setCity(id);
+    setFocusCity(id);
+  }, []);
   const weeks = useMemo(
     () => [...new Set(data.predictions.map((r) => r.week))].sort(),
     [data],
@@ -118,8 +130,14 @@ function Dashboard({ data }: { data: MeetingData }) {
       <PredictionMap
         cities={data.cities}
         rows={rows}
+        predictions={data.predictions}
         selected={cityId}
-        onSelect={setCity}
+        onSelect={selectCity}
+        focusCity={focusCity}
+        onFocus={setFocusCity}
+        week={week}
+        weeks={weeks}
+        onWeekChange={setWeek}
       />
     </Suspense>
   );
@@ -131,7 +149,7 @@ function Dashboard({ data }: { data: MeetingData }) {
           <button
             key={c.id}
             className={`hm-city ${cityId === c.id ? 'selected' : ''}`}
-            onClick={() => setCity(c.id)}
+            onClick={() => selectCity(c.id)}
             aria-pressed={cityId === c.id}
           >
             <span className="hm-city-icon">
@@ -311,7 +329,7 @@ function Dashboard({ data }: { data: MeetingData }) {
               <select
                 aria-label="Cidade em foco"
                 value={cityId}
-                onChange={(e) => setCity(e.target.value)}
+                onChange={(e) => selectCity(e.target.value)}
               >
                 {data.cities.map((c) => (
                   <option key={c.id} value={c.id}>
@@ -365,7 +383,11 @@ function Dashboard({ data }: { data: MeetingData }) {
                       <span className="hm-section-label">
                         LEITURA TERRITORIAL
                       </span>
-                      <h2>Cinco cidades. Diferentes cenários.</h2>
+                      <h2>
+                        {focusCity
+                          ? `Dentro de ${city.name}`
+                          : 'Cinco cidades. Diferentes cenários.'}
+                      </h2>
                     </div>
                     <button
                       className="hm-text-button"
@@ -375,7 +397,7 @@ function Dashboard({ data }: { data: MeetingData }) {
                     </button>
                   </div>
                   {map}
-                  <div className="hm-legend">
+                  <div className="hm-legend" hidden={focusCity !== null}>
                     <span>
                       <i style={{ background: colors.Alta }} />
                       Alta
@@ -660,14 +682,22 @@ function Dashboard({ data }: { data: MeetingData }) {
                   <div className="hm-panel-heading">
                     <div>
                       <span className="hm-section-label">
-                        VARIAÇÃO PREVISTA
+                        {focusCity
+                          ? 'CONTEXTO INTRAMUNICIPAL'
+                          : 'VARIAÇÃO PREVISTA'}
                       </span>
-                      <h2>Um olhar sobre o território</h2>
+                      <h2>
+                        {focusCity
+                          ? `Dentro de ${city.name}`
+                          : 'Um olhar sobre o território'}
+                      </h2>
                     </div>
-                    <span className="hm-count">5 cidades</span>
+                    <span className="hm-count">
+                      {focusCity ? 'Regiões · UDHs' : '5 cidades'}
+                    </span>
                   </div>
                   {map}
-                  <div className="hm-legend">
+                  <div className="hm-legend" hidden={focusCity !== null}>
                     <span>
                       <i style={{ background: colors.Alta }} />
                       Alta &gt; 20%
@@ -740,8 +770,9 @@ function Dashboard({ data }: { data: MeetingData }) {
               </section>
               <p className="hm-map-caveat">
                 <CircleHelp size={16} />
-                Pontos representam municípios de notificação. Sem estimativa por
-                bairro, taxa populacional ou teste de agrupamento espacial.
+                Clique em uma cidade para explorar suas regiões (UDHs). Os
+                indicadores locais contextualizam o território; as predições são
+                municipais.
               </p>
             </>
           )}
@@ -769,6 +800,18 @@ function Dashboard({ data }: { data: MeetingData }) {
                   anteriores. Queda: mais de 20% abaixo. Estável: entre −20% e
                   +20%. Base zero: sem comparação percentual. É uma convenção
                   visual, não um limiar epidemiológico.
+                </p>
+                <h3>Como explorar o histórico e as regiões?</h3>
+                <p>
+                  Os minigráficos comparam previsto (verde tracejado) e
+                  observado (cinza), com até 26 semanas de referência até a
+                  semana selecionada. Cada cidade usa uma escala vertical
+                  própria, iniciada em zero, para evidenciar a forma da série. A
+                  reprodução percorre dados históricos; não é uma atualização ao
+                  vivo. Ao entrar na cidade, as cores passam a representar a
+                  variável regional escolhida. As 1.961 UDHs têm IVS, IDHM e
+                  renda de referência 2010 e CNES de julho/2026. Esses atributos
+                  são estáticos, não séries regionais de dengue.
                 </p>
               </div>
               <div>
