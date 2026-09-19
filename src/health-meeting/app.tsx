@@ -247,6 +247,7 @@ function Dashboard({ data }: { data: MeetingData }) {
             </div>
             <a
               className="hm-download"
+              aria-label="Baixar dados das predições em CSV"
               href={assetUrl('health-meeting/predictions.csv')}
               download
             >

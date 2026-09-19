@@ -23,9 +23,12 @@ export default function PredictionMap({
       scrollWheelZoom: false,
       minZoom: 2,
       maxZoom: 10,
-      zoomControl: true,
+      zoomControl: false,
     });
     map.current = instance;
+    L.control
+      .zoom({ zoomInTitle: 'Aproximar mapa', zoomOutTitle: 'Afastar mapa' })
+      .addTo(instance);
     instance.fitBounds(
       cities.map((c) => [c.lat, c.lng] as L.LatLngTuple),
       { padding: [48, 48] },
