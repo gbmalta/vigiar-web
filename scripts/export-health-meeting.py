@@ -38,9 +38,9 @@ out = ROOT / 'public/health-meeting'
 out.mkdir(exist_ok=True)
 raw = (json.dumps(payload, ensure_ascii=False, separators=(',', ':'), allow_nan=False) + '\n').encode()
 (out / 'predictions.json').write_bytes(raw)
-(out / 'manifest.json').write_text(json.dumps(dict(sha256=hashlib.sha256(raw).hexdigest(), rows=520, cities=5, weeks=104, sourceRun=RUN_ID, sourceHash=payload['sourceHash']), indent=2) + '\n', encoding='utf-8')
+(out / 'manifest.json').write_text(json.dumps(dict(sha256=hashlib.sha256(raw).hexdigest(), rows=520, cities=5, weeks=104, sourceRun=RUN_ID, sourceHash=payload['sourceHash']), indent=2) + '\n', encoding='utf-8', newline='\n')
 with (out / 'predictions.csv').open('w', encoding='utf-8', newline='') as stream:
-    writer = csv.DictWriter(stream, fieldnames=list(predictions[0]))
+    writer = csv.DictWriter(stream, fieldnames=list(predictions[0]), lineterminator='\n')
     writer.writeheader()
     writer.writerows(payload['predictions'])
 print(f'Exported {len(predictions)} verified municipal predictions ({len(raw):,} bytes).')
