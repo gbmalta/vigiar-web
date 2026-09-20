@@ -44,3 +44,12 @@ UDHs não equivalem necessariamente a bairros. Os valores regionais são fotogra
 `npm run review:meeting` executa revisão semântica de afirmações editoriais com Choice, via HTTP API v1, usando `TYPESAFE_API_KEY` somente no ambiente do processo. Envia apenas definições e metadados agregados. Salva o resultado em `tmp/`, nunca no pacote público; inclui duas afirmações falsas como controles. Não altera textos ou números automaticamente e não confunde confiança semântica com incerteza epidemiológica. Não foi executado sem uma chave configurada.
 
 Referências lidas: [API](https://docs.typesafe.ai/api), [Choice](https://docs.typesafe.ai/primitives/choice), [verificação de citações](https://docs.typesafe.ai/cookbooks/citation_check).
+
+## Identidade visual
+
+A edição Health Meeting usa os logos originais fornecidos pelo projeto, em
+`public/health-meeting/brand/`, preservando cores, transparência e proporções.
+A identidade usa o azul `#053A81` e o turquesa `#1EAF9D` extraídos do logo MLab.
+O turquesa escuro `#087F73` dá contraste aos controles e às séries previstas.
+As cores de tendência e das escalas regionais continuam com seu significado
+analítico. O cabeçalho adapta os dois logos para desktop e celular.

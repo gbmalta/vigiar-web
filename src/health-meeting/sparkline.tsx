@@ -21,7 +21,7 @@ export function Sparkline({
       aria-label={`${city}: previsto e observado nas últimas ${series.length} semanas disponíveis, até ${date(series.at(-1)!.week)}. Escala de zero a ${number(shape.max)} notificações.`}
       preserveAspectRatio="none"
     >
-      <line x1="3" y1={height - 3} x2="125" y2={height - 3} stroke="#dce6df" />
+      <line x1="3" y1={height - 3} x2="125" y2={height - 3} stroke="#dce5ef" />
       <path
         d={shape.observed}
         fill="none"
@@ -32,7 +32,7 @@ export function Sparkline({
       <path
         d={shape.predicted}
         fill="none"
-        stroke="#188360"
+        stroke="#087f73"
         strokeWidth="1.8"
         strokeDasharray="4 2"
         vectorEffect="non-scaling-stroke"
@@ -50,7 +50,7 @@ export function Sparkline({
           cx={shape.predictedEnd.x}
           cy={shape.predictedEnd.y}
           r="2"
-          fill="#188360"
+          fill="#087f73"
         />
       )}
     </svg>

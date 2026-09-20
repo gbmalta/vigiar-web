@@ -182,12 +182,27 @@ function Dashboard({ data }: { data: MeetingData }) {
           className="hm-brand"
           aria-label="VIGIAR início"
         >
-          <span className="hm-brand-icon">
-            <Activity size={24} />
+          <img
+            className="hm-mlab-logo"
+            src={assetUrl('health-meeting/brand/mlab-logo.png')}
+            alt="MLab — Machine Learning & Applications in Biomedical Data Analysis"
+            width={499}
+            height={149}
+          />
+          <span className="hm-brand-caption">
+            <strong>VIGIAR</strong>
+            <span>Inteligência em saúde</span>
           </span>
-          VIGIAR
-          <span className="hm-brand-description">Inteligência em saúde</span>
         </a>
+        <div className="hm-institution">
+          <img
+            className="hm-ufrgs-logo"
+            src={assetUrl('health-meeting/brand/ufrgs-logo.svg')}
+            alt="UFRGS — Universidade Federal do Rio Grande do Sul"
+            width={600}
+            height={500}
+          />
+        </div>
         <div className="hm-event">
           <span />
           Health Meeting <span className="hm-event-year">2026</span>
@@ -598,7 +613,7 @@ function Dashboard({ data }: { data: MeetingData }) {
                       <Line
                         name="Previsto"
                         dataKey="predicted"
-                        stroke="#228c70"
+                        stroke="#087f73"
                         dot={false}
                         activeDot={{ r: 5 }}
                         strokeWidth={2.5}
@@ -846,7 +861,9 @@ function Dashboard({ data }: { data: MeetingData }) {
               <strong>VIGIAR</strong> Ciência de dados a serviço da saúde
               pública.
             </span>
-            <span>Health Meeting · Edição de apresentação</span>
+            <span className="hm-footer-institutions">
+              MLab · UFRGS <span aria-hidden="true">/</span> Health Meeting 2026
+            </span>
           </footer>
         </main>
       </div>

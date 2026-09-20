@@ -305,7 +305,7 @@ export default function PredictionMap({
       const polygon = layer as L.Polygon & { feature: { properties: Region } };
       const chosen = polygon.feature.properties.id === regionId;
       polygon.setStyle({
-        color: chosen ? '#183f31' : '#fff',
+        color: chosen ? '#053a81' : '#fff',
         weight: chosen ? 3 : 1,
         fillOpacity: chosen ? 0.9 : 0.75,
       });
@@ -436,7 +436,7 @@ export default function PredictionMap({
                   y1={c.y}
                   x2={c.left + cardWidth / 2}
                   y2={c.top + 42}
-                  stroke="#738d7d"
+                  stroke="#69839e"
                   strokeWidth="1"
                 />
               ))}
