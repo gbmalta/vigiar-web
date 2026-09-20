@@ -202,6 +202,13 @@ function Dashboard({ data }: { data: MeetingData }) {
             width={600}
             height={500}
           />
+          <img
+            className="hm-ciars-logo"
+            src={assetUrl('health-meeting/brand/ciars-logo.png')}
+            alt="CIARS"
+            width={243}
+            height={81}
+          />
         </div>
         <div className="hm-event">
           <span />
@@ -849,7 +856,8 @@ function Dashboard({ data }: { data: MeetingData }) {
               <strong>VIGIAR</strong>
             </span>
             <span className="hm-footer-institutions">
-              MLab · UFRGS <span aria-hidden="true">/</span> Health Meeting 2026
+              MLab · UFRGS · CIARS <span aria-hidden="true">/</span> Health
+              Meeting 2026
             </span>
           </footer>
         </main>

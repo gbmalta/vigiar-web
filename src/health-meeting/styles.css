@@ -1950,7 +1950,7 @@ small {
   white-space: nowrap;
 }
 
-/* MLab and UFRGS keep their original artwork and proportions. */
+/* Institutional logos keep their original artwork and proportions. */
 .hm-header {
   height: 118px;
   gap: 28px;
@@ -1985,8 +1985,16 @@ small {
   padding-left: 9px;
 }
 .hm-institution {
+  display: flex;
+  align-items: center;
+  gap: 22px;
   border-left: 1px solid var(--hm-border);
   padding-left: 25px;
+}
+.hm-ciars-logo {
+  display: block;
+  width: 146px;
+  height: auto;
 }
 .hm-ufrgs-logo {
   display: block;
@@ -2056,7 +2064,11 @@ small {
     width: 220px;
   }
   .hm-institution {
-    padding-left: 20px;
+    padding-left: 16px;
+    gap: 14px;
+  }
+  .hm-ciars-logo {
+    width: 120px;
   }
   .hm-sidebar {
     min-height: 0;
@@ -2090,6 +2102,11 @@ small {
   }
   .hm-institution {
     padding-left: 13px;
+    flex-direction: column;
+    gap: 9px;
+  }
+  .hm-ciars-logo {
+    width: 90px;
   }
   .hm-ufrgs-logo {
     width: 65px;

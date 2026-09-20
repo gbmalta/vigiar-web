@@ -52,7 +52,7 @@ A edição Health Meeting usa os logos originais fornecidos pelo projeto, em
 A identidade usa o azul `#053A81` e o turquesa `#1EAF9D` extraídos do logo MLab.
 O turquesa escuro `#087F73` dá contraste aos controles e às séries previstas.
 As cores de tendência e das escalas regionais continuam com seu significado
-analítico. O cabeçalho adapta os dois logos para desktop e celular.
+analítico. O cabeçalho adapta os logos MLab, UFRGS e CIARS para desktop e celular.
 
 ## Texto da interface
 
