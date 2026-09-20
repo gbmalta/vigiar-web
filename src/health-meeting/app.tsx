@@ -19,7 +19,6 @@ import {
   Compass,
   LayoutDashboard,
   MapPin,
-  MoveUpRight,
 } from 'lucide-react';
 import {
   CartesianGrid,
@@ -356,16 +355,12 @@ function Dashboard({ data }: { data: MeetingData }) {
                 aria-label="Resumo da janela selecionada"
               >
                 <article>
-                  <span>
-                    Notificações previstas <ChartNoAxesCombined size={18} />
-                  </span>
+                  <span>Notificações previstas</span>
                   <strong>{number(total)}</strong>
                   <small>Soma das 5 cidades nesta janela</small>
                 </article>
                 <article>
-                  <span>
-                    Cidades com alta prevista <MoveUpRight size={18} />
-                  </span>
+                  <span>Cidades com alta prevista</span>
                   <strong>
                     {rising}
                     <em> / 5</em>
@@ -374,10 +369,8 @@ function Dashboard({ data }: { data: MeetingData }) {
                     Variação acima de 20% sobre as 4 semanas anteriores
                   </small>
                 </article>
-                <article className="hm-stat-accent">
-                  <span>
-                    Horizonte de predição <Clock3 size={18} />
-                  </span>
+                <article>
+                  <span>Horizonte de predição</span>
                   <strong>
                     4 <em>semanas</em>
                   </strong>
@@ -479,7 +472,7 @@ function Dashboard({ data }: { data: MeetingData }) {
                   <strong>{number(current.observed)}</strong>
                   <small>Valor conhecido após o período</small>
                 </article>
-                <article className="hm-stat-accent">
+                <article>
                   <span>Variação frente ao histórico recente</span>
                   <strong>{percent(change(current))}</strong>
                   <small>
@@ -734,10 +727,12 @@ function Dashboard({ data }: { data: MeetingData }) {
                     <MapPin size={20} />
                   </div>
                   <div className="hm-detail-body">
-                    <Badge row={current} />
-                    <strong className="hm-detail-number">
-                      {number(current.predicted)}
-                    </strong>
+                    <div className="hm-detail-measure">
+                      <strong className="hm-detail-number">
+                        {number(current.predicted)}
+                      </strong>
+                      <Badge row={current} />
+                    </div>
                     <p>notificações previstas em 4 semanas</p>
                     <dl>
                       <div>

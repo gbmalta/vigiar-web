@@ -60,3 +60,13 @@ Usar títulos descritivos de conteúdo e função (vigilância epidemiológica,
 leitura territorial, predições, indicadores e métricas). Evitar slogans,
 metáforas e chamadas promocionais. Manter unidades, datas, instruções de
 interação e limitações necessárias à interpretação dos dados.
+
+## Apresentação das métricas
+
+Os indicadores usam uma faixa tipográfica contínua, com destaque proporcional
+para o total previsto e separadores finos entre medidas secundárias. Não há
+cartões individuais, fundos coloridos nem ícones decorativos nas métricas.
+No celular, a medida principal ocupa a primeira linha e as secundárias ficam
+lado a lado. O resumo municipal no mapa usa valores alinhados, e os indicadores
+das UDHs usam uma grade de duas colunas com unidades e datas preservadas.
+A comparação de municípios mantém os botões e destaca a seleção por uma linha.
