@@ -31,7 +31,7 @@ MAE e WAPE calculados no navegador, com verificação independente contra os val
 
 ## Histórico dinâmico e regiões
 
-O mapa exibe minigráficos de previsto (verde tracejado) e observado (cinza), com as últimas 26 semanas de referência disponíveis até a semana escolhida. As duas linhas usam a mesma escala iniciada em zero dentro de cada gráfico; a escala é própria por cidade e recorte, apropriada à leitura de tendências, não à comparação direta de alturas entre cidades. Os cartões têm conectores às coordenadas municipais e posicionamento para evitar sobreposição. Podem ser ocultados.
+O mapa exibe minigráficos de previsto (turquesa tracejado) e observado (cinza), com as últimas 26 semanas de referência disponíveis até a semana escolhida. As duas linhas usam a mesma escala iniciada em zero dentro de cada gráfico; a escala é própria por cidade e recorte, apropriada à leitura de tendências, não à comparação direta de alturas entre cidades. Os cartões têm conectores às coordenadas municipais e posicionamento para evitar sobreposição. Podem ser ocultados.
 
 O controle temporal sincroniza cartões, indicadores e detalhes. Reproduzir avança uma semana a cada 1,2 segundo; inicia no começo quando acionado no final; para ao terminar, ao manipular a barra, ao sair da aba ou ao ocultar a página. É reprodução retrospectiva, não atualização ao vivo. Mudanças de semana não reposicionam a câmera nem alteram os atributos regionais.
 
@@ -53,3 +53,10 @@ A identidade usa o azul `#053A81` e o turquesa `#1EAF9D` extraídos do logo MLab
 O turquesa escuro `#087F73` dá contraste aos controles e às séries previstas.
 As cores de tendência e das escalas regionais continuam com seu significado
 analítico. O cabeçalho adapta os dois logos para desktop e celular.
+
+## Texto da interface
+
+Usar títulos descritivos de conteúdo e função (vigilância epidemiológica,
+leitura territorial, predições, indicadores e métricas). Evitar slogans,
+metáforas e chamadas promocionais. Manter unidades, datas, instruções de
+interação e limitações necessárias à interpretação dos dados.

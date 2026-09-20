@@ -631,10 +631,10 @@ export default function PredictionMap({
               )}
               <p className="hm-region-footnote">
                 UDHs são Unidades de Desenvolvimento Humano; seus limites não
-                equivalem necessariamente a bairros. Indicadores regionais são
-                fotografias de suas respectivas datas e não mudam com a
-                reprodução. A predição é municipal: não há série prevista ou
-                observada por UDH neste recorte.
+                equivalem necessariamente a bairros. Os indicadores regionais
+                têm datas de referência fixas e não mudam com a reprodução. A
+                predição é municipal: não há série prevista ou observada por UDH
+                neste recorte.
               </p>
             </div>
           )}

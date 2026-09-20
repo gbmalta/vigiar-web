@@ -191,7 +191,7 @@ function Dashboard({ data }: { data: MeetingData }) {
           />
           <span className="hm-brand-caption">
             <strong>VIGIAR</strong>
-            <span>Inteligência em saúde</span>
+            <span>Vigilância epidemiológica</span>
           </span>
         </a>
         <div className="hm-institution">
@@ -229,15 +229,6 @@ function Dashboard({ data }: { data: MeetingData }) {
             ))}
           </nav>
           <div className="hm-sidebar-note">
-            <span className="hm-mini-icon">
-              <Activity size={20} />
-            </span>
-            <strong>
-              Da informação
-              <br />à antecipação.
-            </strong>
-            <p>Um olhar sobre a dengue em cinco cidades brasileiras.</p>
-            <span className="hm-sidebar-line" />
             <small>
               EDIÇÃO HEALTH MEETING
               <br />
@@ -265,17 +256,17 @@ function Dashboard({ data }: { data: MeetingData }) {
             <div>
               <h1>
                 {tab === 'overview'
-                  ? 'Antecipar para cuidar.'
+                  ? 'Monitoramento da dengue'
                   : tab === 'predictions'
-                    ? 'O que o modelo antecipa?'
-                    : 'As predições no território.'}
+                    ? 'Predições de dengue'
+                    : 'Análise espacial'}
               </h1>
               <p>
                 {tab === 'overview'
-                  ? 'Predições de dengue, conectadas ao território.'
+                  ? 'Notificações previstas em cinco municípios.'
                   : tab === 'predictions'
-                    ? 'Compare o previsto e o observado, uma cidade de cada vez.'
-                    : 'Explore como a variação prevista se distribui entre as cidades.'}
+                    ? 'Séries previstas e observadas por município.'
+                    : 'Predições municipais e indicadores por UDH.'}
               </p>
             </div>
             <a
@@ -292,13 +283,10 @@ function Dashboard({ data }: { data: MeetingData }) {
             <div>
               <span className="hm-context-dot" />
               <strong>Previsões históricas</strong>
-              <span>
-                Explore o que foi previsto para cada período. Não há previsão
-                atual para setembro de 2026.
-              </span>
+              <span>Não há previsão atual para setembro de 2026.</span>
             </div>
             <a href="#methodology" onClick={() => setMethodOpen(true)}>
-              Entenda o estudo <ArrowRight size={14} />
+              Metodologia <ArrowRight size={14} />
             </a>
           </div>
           <div className="hm-filter-row">
@@ -381,7 +369,7 @@ function Dashboard({ data }: { data: MeetingData }) {
                 </article>
                 <article className="hm-stat-accent">
                   <span>
-                    Horizonte de antecipação <Clock3 size={18} />
+                    Horizonte de predição <Clock3 size={18} />
                   </span>
                   <strong>
                     4 <em>semanas</em>
@@ -400,8 +388,8 @@ function Dashboard({ data }: { data: MeetingData }) {
                       </span>
                       <h2>
                         {focusCity
-                          ? `Dentro de ${city.name}`
-                          : 'Cinco cidades. Diferentes cenários.'}
+                          ? `UDHs de ${city.name}`
+                          : 'Predições por município'}
                       </h2>
                     </div>
                     <button
@@ -458,11 +446,11 @@ function Dashboard({ data }: { data: MeetingData }) {
                   <ChartNoAxesCombined size={22} />
                 </span>
                 <div>
-                  <h3>Uma previsão também precisa mostrar seus limites.</h3>
+                  <h3>Erro das predições</h3>
                   <p>
-                    No recorte completo, o erro percentual agregado (WAPE) é de{' '}
-                    <strong>{percent(overall.wape)}</strong>. Explore o
-                    desempenho por cidade.
+                    Erro percentual agregado (WAPE):{' '}
+                    <strong>{percent(overall.wape)}</strong> no período
+                    2024–2025.
                   </p>
                 </div>
                 <button onClick={() => navigate('predictions')}>
@@ -635,7 +623,7 @@ function Dashboard({ data }: { data: MeetingData }) {
                   <span className="hm-section-label">
                     DESEMPENHO · {city.name.toLocaleUpperCase('pt-BR')} · {year}
                   </span>
-                  <h2>O quanto a previsão se aproxima?</h2>
+                  <h2>Métricas de erro</h2>
                 </div>
                 <div>
                   <strong>{percent(local.wape)}</strong>
@@ -703,8 +691,8 @@ function Dashboard({ data }: { data: MeetingData }) {
                       </span>
                       <h2>
                         {focusCity
-                          ? `Dentro de ${city.name}`
-                          : 'Um olhar sobre o território'}
+                          ? `UDHs de ${city.name}`
+                          : 'Variação por município'}
                       </h2>
                     </div>
                     <span className="hm-count">
@@ -778,7 +766,7 @@ function Dashboard({ data }: { data: MeetingData }) {
                     <span className="hm-section-label">
                       COMPARAÇÃO MUNICIPAL
                     </span>
-                    <h2>A mesma janela, cinco contextos</h2>
+                    <h2>Notificações por município</h2>
                   </div>
                 </div>
                 {cityList}
@@ -802,23 +790,23 @@ function Dashboard({ data }: { data: MeetingData }) {
             </summary>
             <div className="hm-method-grid">
               <div>
-                <h3>O que estamos prevendo?</h3>
+                <h3>Variável e horizonte de predição</h3>
                 <p>
                   O total de notificações de dengue nas quatro semanas
                   seguintes, por município de notificação. Inclui registros
                   posteriormente descartados; não representa casos confirmados
                   nem pessoas únicas.
                 </p>
-                <h3>Como interpretar as cores?</h3>
+                <h3>Escala de cores</h3>
                 <p>
                   Alta: previsão mais de 20% acima das quatro semanas
                   anteriores. Queda: mais de 20% abaixo. Estável: entre −20% e
                   +20%. Base zero: sem comparação percentual. É uma convenção
                   visual, não um limiar epidemiológico.
                 </p>
-                <h3>Como explorar o histórico e as regiões?</h3>
+                <h3>Histórico e indicadores regionais</h3>
                 <p>
-                  Os minigráficos comparam previsto (verde tracejado) e
+                  Os minigráficos comparam previsto (turquesa tracejado) e
                   observado (cinza), com até 26 semanas de referência até a
                   semana selecionada. Cada cidade usa uma escala vertical
                   própria, iniciada em zero, para evidenciar a forma da série. A
@@ -830,7 +818,7 @@ function Dashboard({ data }: { data: MeetingData }) {
                 </p>
               </div>
               <div>
-                <h3>Qual modelo e avaliação?</h3>
+                <h3>Modelo e avaliação</h3>
                 <p>
                   {data.model}, configuração {data.sourceVersion}, com seleção
                   interna antes de 2024 e sem reajuste durante o teste. São 520
@@ -838,7 +826,7 @@ function Dashboard({ data }: { data: MeetingData }) {
                   2024–2025. Esses anos já foram explorados no projeto: a
                   avaliação é retrospectiva, não prospectiva independente.
                 </p>
-                <h3>O que significa o erro?</h3>
+                <h3>Definição das métricas</h3>
                 <p>
                   WAPE = soma dos erros absolutos / soma dos observados. MAE =
                   média dos erros absolutos. A referência repete o total das
@@ -858,8 +846,7 @@ function Dashboard({ data }: { data: MeetingData }) {
           </details>
           <footer className="hm-footer">
             <span>
-              <strong>VIGIAR</strong> Ciência de dados a serviço da saúde
-              pública.
+              <strong>VIGIAR</strong>
             </span>
             <span className="hm-footer-institutions">
               MLab · UFRGS <span aria-hidden="true">/</span> Health Meeting 2026
@@ -914,7 +901,7 @@ export default function App() {
     return (
       <main className="hm-state" role="status">
         <Activity size={36} />
-        <p>Preparando uma visão mais clara…</p>
+        <p>Carregando dados…</p>
       </main>
     );
   return <Dashboard data={data} />;
