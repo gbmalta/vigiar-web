@@ -1620,7 +1620,7 @@ small {
   .hm-sidebar,
   .hm-download,
   .hm-filter-row button,
-  .hm-header > a:last-child {
+  .hm-header .hm-header-actions .hm-original {
     display: none;
   }
   .hm-shell {
@@ -1682,19 +1682,38 @@ small {
 
 /* Institutional logos keep their original artwork and proportions. */
 .hm-header {
-  height: 118px;
-  gap: 28px;
+  height: auto;
+  min-height: 124px;
+  padding: 16px 38px;
+  gap: 36px;
   border-top: 3px solid var(--hm-navy);
 }
-.hm-brand {
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 4px;
+.hm-identity {
+  min-width: 0;
+}
+.hm-logo-row {
+  display: grid;
+  grid-template-columns: 200px 86px 132px;
+  align-items: center;
+  gap: 32px;
+  height: 72px;
+}
+.hm-logo-row .hm-brand,
+.hm-logo-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  height: 100%;
+}
+.hm-logo-row img {
+  display: block;
+  object-fit: contain;
+  height: auto;
+  max-width: 100%;
 }
 .hm-mlab-logo {
-  display: block;
-  width: 240px;
-  height: auto;
+  width: 200px;
 }
 .hm-brand-caption {
   display: flex;
@@ -1704,6 +1723,7 @@ small {
   font-size: 10px;
   font-weight: 400;
   letter-spacing: 0;
+  margin-top: 10px;
 }
 .hm-brand-caption strong {
   color: var(--hm-navy);
@@ -1714,25 +1734,29 @@ small {
   border-left: 1px solid var(--hm-border-strong);
   padding-left: 9px;
 }
-.hm-institution {
-  display: flex;
-  align-items: center;
-  gap: 22px;
-  border-left: 1px solid var(--hm-border);
-  padding-left: 25px;
-}
 .hm-ciars-logo {
-  display: block;
-  width: 146px;
-  height: auto;
+  width: 132px;
 }
 .hm-ufrgs-logo {
-  display: block;
-  width: 88px;
-  height: auto;
+  width: 86px;
+}
+.hm-header-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  margin-left: auto;
+}
+.hm-header-actions .hm-event {
+  margin: 0;
+  white-space: nowrap;
+}
+.hm-header-actions .hm-original {
+  display: flex;
+  white-space: nowrap;
 }
 .hm-sidebar {
-  min-height: calc(100vh - 118px);
+  min-height: calc(100vh - 124px);
 }
 .hm-sidebar nav a.active {
   background: #e9f0fa;
@@ -1780,58 +1804,62 @@ small {
 }
 @media (max-width: 980px) {
   .hm-header {
-    gap: 20px;
+    padding-inline: 25px;
+    gap: 24px;
   }
-  .hm-mlab-logo {
-    width: 220px;
-  }
-  .hm-institution {
-    padding-left: 16px;
-    gap: 14px;
-  }
-  .hm-ciars-logo {
-    width: 120px;
+  .hm-logo-row {
+    grid-template-columns: 180px 78px 120px;
+    gap: 24px;
   }
   .hm-sidebar {
     min-height: 0;
   }
 }
-@media (max-width: 700px) {
+@media (max-width: 800px) {
   .hm-header {
-    height: auto;
-    min-height: 139px;
-    padding: 15px 18px 12px;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 13px 15px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    padding: 16px 25px 12px;
   }
-  .hm-brand {
-    font-size: inherit;
-    gap: 5px;
+  .hm-identity {
+    width: min(480px, 100%);
+    margin-inline: auto;
   }
-  .hm-mlab-logo {
-    width: min(220px, 100%);
+  .hm-logo-row {
+    grid-template-columns: 1.8fr 0.8fr 1.25fr;
+    gap: clamp(14px, 4vw, 26px);
   }
   .hm-brand-caption {
-    font-size: 8px;
+    justify-content: center;
+  }
+  .hm-header-actions {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding-top: 11px;
+    border-top: 1px solid var(--hm-border);
+  }
+}
+@media (max-width: 700px) {
+  .hm-header {
+    padding: 14px 18px 10px;
+    gap: 12px;
+  }
+  .hm-logo-row {
+    height: 62px;
+  }
+  .hm-brand-caption {
+    font-size: 9px;
     gap: 6px;
+    margin-top: 8px;
   }
   .hm-brand-caption strong {
     font-size: 10px;
   }
   .hm-brand-caption > span {
     padding-left: 6px;
-  }
-  .hm-institution {
-    padding-left: 13px;
-    flex-direction: column;
-    gap: 9px;
-  }
-  .hm-ciars-logo {
-    width: 90px;
-  }
-  .hm-ufrgs-logo {
-    width: 65px;
   }
   .hm-event {
     margin: 0;

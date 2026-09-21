@@ -116,6 +116,14 @@ leitura territorial, predições, indicadores e métricas). Evitar slogans,
 metáforas e chamadas promocionais. Manter unidades, datas, instruções de
 interação e limitações necessárias à interpretação dos dados.
 
+## Composição institucional do cabeçalho
+
+MLab, UFRGS e CIARS compartilham uma faixa com alinhamento vertical central e
+larguras ajustadas ao formato de cada marca. As imagens mantêm as proporções,
+cores e conteúdo originais. No celular, as três marcas continuam lado a lado;
+o nome do VIGIAR fica abaixo e os controles do evento ocupam uma faixa própria.
+Verificação visual em desktop e larguras de 820, 390 e 320 pixels.
+
 ## Apresentação das métricas
 
 Os indicadores usam uma faixa tipográfica contínua, com destaque proporcional

@@ -197,46 +197,58 @@ function Dashboard({ data }: { data: MeetingData }) {
         Pular para o conteúdo
       </a>
       <header className="hm-header">
-        <a
-          href={assetUrl('health-meeting.html')}
-          className="hm-brand"
-          aria-label="VIGIAR início"
-        >
-          <img
-            className="hm-mlab-logo"
-            src={assetUrl('health-meeting/brand/mlab-logo.png')}
-            alt="MLab — Machine Learning & Applications in Biomedical Data Analysis"
-            width={499}
-            height={149}
-          />
-          <span className="hm-brand-caption">
+        <div className="hm-identity">
+          <div
+            className="hm-logo-row"
+            role="group"
+            aria-label="Instituições: MLab, UFRGS e CIARS"
+          >
+            <a
+              href={assetUrl('health-meeting.html')}
+              className="hm-brand"
+              aria-label="VIGIAR início"
+            >
+              <img
+                className="hm-mlab-logo"
+                src={assetUrl('health-meeting/brand/mlab-logo.png')}
+                alt="MLab — Machine Learning & Applications in Biomedical Data Analysis"
+                width={499}
+                height={149}
+              />
+            </a>
+            <div className="hm-logo-slot">
+              <img
+                className="hm-ufrgs-logo"
+                src={assetUrl('health-meeting/brand/ufrgs-logo.svg')}
+                alt="UFRGS — Universidade Federal do Rio Grande do Sul"
+                width={600}
+                height={500}
+              />
+            </div>
+            <div className="hm-logo-slot">
+              <img
+                className="hm-ciars-logo"
+                src={assetUrl('health-meeting/brand/ciars-logo.png')}
+                alt="CIARS"
+                width={243}
+                height={81}
+              />
+            </div>
+          </div>
+          <div className="hm-brand-caption">
             <strong>VIGIAR</strong>
             <span>Vigilância epidemiológica</span>
-          </span>
-        </a>
-        <div className="hm-institution">
-          <img
-            className="hm-ufrgs-logo"
-            src={assetUrl('health-meeting/brand/ufrgs-logo.svg')}
-            alt="UFRGS — Universidade Federal do Rio Grande do Sul"
-            width={600}
-            height={500}
-          />
-          <img
-            className="hm-ciars-logo"
-            src={assetUrl('health-meeting/brand/ciars-logo.png')}
-            alt="CIARS"
-            width={243}
-            height={81}
-          />
+          </div>
         </div>
-        <div className="hm-event">
-          <span />
-          Health Meeting <span className="hm-event-year">2026</span>
+        <div className="hm-header-actions">
+          <div className="hm-event">
+            <span />
+            Health Meeting <span className="hm-event-year">2026</span>
+          </div>
+          <a className="hm-original" href={assetUrl('')}>
+            Explorar atlas completo <ArrowUpRight size={16} />
+          </a>
         </div>
-        <a className="hm-original" href={assetUrl('')}>
-          Explorar atlas completo <ArrowUpRight size={16} />
-        </a>
       </header>
       <div className="hm-shell">
         <aside className="hm-sidebar">
