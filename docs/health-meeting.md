@@ -39,6 +39,27 @@ Clicar no ponto, no minigráfico, na lista ou no seletor da cidade aproxima o ma
 
 UDHs não equivalem necessariamente a bairros. Os valores regionais são fotografias estáticas e não predições de dengue. Não há série prevista ou observada por UDH nesta versão. Os arquivos `public/data/udh-*.geojson` são os mesmos agregados já publicados no atlas, com hashes validados por `npm run check`; não houve nova extração nem rateio das previsões municipais.
 
+## Restauração e ficha técnica
+
+“Restaurar visualização” mantém a aba atual e retorna à última semana, Rio de
+Janeiro como cidade de referência e visão nacional do mapa. Reativa observado
+e minigráficos, oculta a persistência, limpa a busca/seleção regional, restaura
+a variável territorial padrão e interrompe a reprodução temporal. Uma mensagem
+acessível confirma a ação.
+
+A aba “Modelo e experimentos” apresenta a formulação Poisson com offset,
+18 atributos, transformações, parâmetros, três divisões temporais internas,
+cinco configurações avaliadas e três referências. Os detalhes são expansíveis.
+Os anos já explorados são identificados como avaliação retrospectiva; as
+variáveis territoriais do mapa não são apresentadas como entradas do modelo.
+
+`python scripts/export-model-details.py` exporta apenas metadados permitidos
+dos artefatos congelados, conferindo seus SHA-256. Não carrega modelos binários
+nem dados individuais e não executa experimentos. O arquivo público
+`health-meeting/model-details.json` inclui a proveniência. A verificação
+`npm run check:meeting` reconcilia a ficha com as predições publicadas e checa
+as fronteiras temporais de treino e validação.
+
 ## TypeSafe opcional
 
 `npm run review:meeting` executa revisão semântica de afirmações editoriais com Choice, via HTTP API v1, usando `TYPESAFE_API_KEY` somente no ambiente do processo. Envia apenas definições e metadados agregados. Salva o resultado em `tmp/`, nunca no pacote público; inclui duas afirmações falsas como controles. Não altera textos ou números automaticamente e não confunde confiança semântica com incerteza epidemiológica. Não foi executado sem uma chave configurada.

@@ -1,0 +1,193 @@
+{
+  "schemaVersion": 1,
+  "sourceRun": "r20260913T164702_dbba0708",
+  "sourceVersion": "v000044",
+  "features": [
+    "log_lag0",
+    "log_lag1",
+    "log_lag2",
+    "log_lag3",
+    "log_lag4",
+    "log_lag8",
+    "log_lag12",
+    "log_lag52",
+    "log_mean4",
+    "log_mean8",
+    "log_mean13",
+    "season_sin",
+    "season_cos",
+    "city",
+    "climate_temp_mean4",
+    "climate_temp_mean8",
+    "climate_rain_sum4",
+    "climate_rain_sum8"
+  ],
+  "parameters": {
+    "alpha": 0.1,
+    "max_iter": 2000,
+    "tol": 1e-06
+  },
+  "selectedQuantile": 0.75,
+  "selectedGamma": 0.5,
+  "activityThresholds": {
+    "1302603": 269.0,
+    "2611606": 528.0,
+    "3304557": 814.0,
+    "4314902": 72.0,
+    "5103403": 143.0
+  },
+  "estimatorFits": 4,
+  "candidateCount": 15,
+  "train": {
+    "n": 2065,
+    "first_week": "2016-01-03",
+    "last_week": "2023-11-26",
+    "last_target_end": "2023-12-30"
+  },
+  "test": {
+    "n": 520,
+    "first_week": "2024-01-07",
+    "last_week": "2025-12-28",
+    "last_target_end": "2026-01-31"
+  },
+  "innerFolds": [
+    {
+      "inner_fold": 1,
+      "n_train": 1655,
+      "n_validation": 130,
+      "training_last_label_ready_date": "2022-06-04",
+      "validation_first_week": "2022-06-05",
+      "validation_last_week": "2022-11-27"
+    },
+    {
+      "inner_fold": 2,
+      "n_train": 1785,
+      "n_validation": 130,
+      "training_last_label_ready_date": "2022-12-03",
+      "validation_first_week": "2022-12-04",
+      "validation_last_week": "2023-05-28"
+    },
+    {
+      "inner_fold": 3,
+      "n_train": 1915,
+      "n_validation": 130,
+      "training_last_label_ready_date": "2023-06-03",
+      "validation_first_week": "2023-06-04",
+      "validation_last_week": "2023-11-26"
+    }
+  ],
+  "variants": [
+    {
+      "version": "v000044",
+      "run": "r20260913T164702_dbba0708",
+      "label": "Poisson com ajuste de baixa atividade",
+      "validationMAE": 239.3074726481965,
+      "mae": 667.813028689871,
+      "wape": 0.4049957255935438,
+      "bias": -259.1287461350188,
+      "n": 520
+    },
+    {
+      "version": "v000051",
+      "run": "r20260913T164710_1c2162a3",
+      "label": "Poisson com correção para cima preservada",
+      "validationMAE": 242.74893855697144,
+      "mae": 669.9331860229505,
+      "wape": 0.40628149664111907,
+      "bias": -252.96077764087514,
+      "n": 520
+    },
+    {
+      "version": "v000022",
+      "run": "r20260913T164717_f54a72d4",
+      "label": "Poisson com correção da persistência",
+      "validationMAE": 243.32194608129123,
+      "mae": 671.4967979279653,
+      "wape": 0.4072297502851974,
+      "bias": -252.4307963570303,
+      "n": 520
+    },
+    {
+      "version": "v000031",
+      "run": "r20260913T164726_26eee747",
+      "label": "Poisson com seleção aninhada de atributos",
+      "validationMAE": 245.99214185975924,
+      "mae": 652.7085895423578,
+      "wape": 0.395835626839209,
+      "bias": -177.10221130315742,
+      "n": 520
+    },
+    {
+      "version": "v000019",
+      "run": "r20260913T164737_3a824a46",
+      "label": "Poisson direto",
+      "validationMAE": 247.47758749981836,
+      "mae": 683.1542269093856,
+      "wape": 0.41429940706944385,
+      "bias": -234.7236028143457,
+      "n": 520
+    }
+  ],
+  "baselines": [
+    {
+      "model": "persistence_4w",
+      "n": 520,
+      "mae": 1125.0461538461539,
+      "wape": 0.6822851065020853
+    },
+    {
+      "model": "persistence_last_week",
+      "n": 520,
+      "mae": 810.6576923076923,
+      "wape": 0.491623981862457
+    },
+    {
+      "model": "seasonal_naive",
+      "n": 520,
+      "mae": 2012.2326923076923,
+      "wape": 1.220320066056484
+    }
+  ],
+  "provenance": [
+    {
+      "run": "r20260913T164702_dbba0708",
+      "artifact": "artifacts/feature_schema.json",
+      "sha256": "f72ee6132b36ebcb44c7b31711cbf8db0d7a8e840559970fb91ff80ac0aa776a"
+    },
+    {
+      "run": "r20260913T164702_dbba0708",
+      "artifact": "artifacts/nested_selection_holdout.json",
+      "sha256": "9cec3f5bdeee184a924bd3888f3655bacd79768faaaf1c095ab091888b419f08"
+    },
+    {
+      "run": "r20260913T164702_dbba0708",
+      "artifact": "artifacts/training_summary.json",
+      "sha256": "160cd60de9e37fbe1188fa25e317c1d8f6abe0fc1a0ef5aaa462772b43c63166"
+    },
+    {
+      "run": "r20260913T164702_dbba0708",
+      "artifact": "artifacts/protocol.json",
+      "sha256": "0d94b419edd103785dc46cd62c8976a82ca3a7178b2bfe718be10fee229d299b"
+    },
+    {
+      "run": "r20260913T164710_1c2162a3",
+      "artifact": "artifacts/training_summary.json",
+      "sha256": "6d9899056c5073f47b9fe25ee47e14833700541f006db1519e16f4b6bead240c"
+    },
+    {
+      "run": "r20260913T164717_f54a72d4",
+      "artifact": "artifacts/training_summary.json",
+      "sha256": "6d4bc36561cfc97dfac0b38cabcde404f4917873b5144d394bbef6daf5a0652b"
+    },
+    {
+      "run": "r20260913T164726_26eee747",
+      "artifact": "artifacts/training_summary.json",
+      "sha256": "255fc80551c931db8b54630dc182143572bfa471a4488a80f8030f1d2995bf6e"
+    },
+    {
+      "run": "r20260913T164737_3a824a46",
+      "artifact": "artifacts/training_summary.json",
+      "sha256": "5739ab47b85871c98bb4792a2a67e0e3bbe42394aeea9bf2d484e1f71b869df1"
+    }
+  ]
+}

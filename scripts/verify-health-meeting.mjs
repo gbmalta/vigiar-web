@@ -119,6 +119,63 @@ for (const row of data.predictions) {
 for (const city of data.cities)
   assert.equal(data.predictions.filter((r) => r.city === city.id).length, 104);
 const measured = metrics(data.predictions);
+const modelDetails = JSON.parse(read('model-details.json'));
+assert.equal(modelDetails.sourceRun, data.sourceRun);
+assert.equal(modelDetails.sourceVersion, data.sourceVersion);
+assert.equal(modelDetails.features.length, 18);
+assert.equal(new Set(modelDetails.features).size, 18);
+assert(modelDetails.features.includes('city'));
+assert.equal(modelDetails.test.n, data.predictions.length);
+assert.equal(
+  modelDetails.test.first_week,
+  data.predictions.map((r) => r.week).sort()[0],
+);
+assert.equal(
+  modelDetails.test.last_week,
+  data.predictions
+    .map((r) => r.week)
+    .sort()
+    .at(-1),
+);
+assert(modelDetails.train.last_target_end < modelDetails.test.first_week);
+assert.equal(modelDetails.innerFolds.length, 3);
+for (const fold of modelDetails.innerFolds) {
+  assert(fold.training_last_label_ready_date < fold.validation_first_week);
+  assert(fold.validation_last_week <= modelDetails.train.last_week);
+  assert(fold.n_train < modelDetails.train.n);
+}
+assert.deepEqual(
+  Object.keys(modelDetails.activityThresholds).sort(),
+  data.cities.map((c) => c.id).sort(),
+);
+assert.equal(modelDetails.variants.length, 5);
+const shownModel = modelDetails.variants.find(
+  (v) => v.version === data.sourceVersion,
+);
+assert(Math.abs(shownModel.mae - measured.mae) < 1e-8);
+assert(Math.abs(shownModel.wape * 100 - measured.wape) < 1e-8);
+const bias =
+  data.predictions.reduce((sum, r) => sum + r.predicted - r.observed, 0) /
+  data.predictions.length;
+assert(Math.abs(shownModel.bias - bias) < 1e-8);
+const baselineMAE =
+  data.predictions.reduce(
+    (sum, r) => sum + Math.abs(r.baseline - r.observed),
+    0,
+  ) / data.predictions.length;
+assert(
+  Math.abs(
+    modelDetails.baselines.find((b) => b.model === 'persistence_4w').mae -
+      baselineMAE,
+  ) < 1e-8,
+);
+for (const result of [...modelDetails.variants, ...modelDetails.baselines]) {
+  assert.equal(result.n, data.predictions.length);
+  assert(Number.isFinite(result.mae) && result.mae >= 0);
+  assert(Number.isFinite(result.wape) && result.wape >= 0);
+}
+for (const source of modelDetails.provenance)
+  assert.match(source.sha256, /^[a-f0-9]{64}$/);
 assert(Math.abs(measured.mae - 667.813028689871) < 1e-8);
 assert(Math.abs(measured.wape - 40.49957255935438) < 1e-8);
 assert.equal(metrics([]).wape, null);

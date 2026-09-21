@@ -19,6 +19,8 @@ import {
   Compass,
   LayoutDashboard,
   MapPin,
+  RotateCcw,
+  FlaskConical,
 } from 'lucide-react';
 import {
   CartesianGrid,
@@ -43,11 +45,13 @@ import {
 } from './data';
 
 const PredictionMap = lazy(() => import('./map'));
-type Tab = 'overview' | 'predictions' | 'map';
+const ModelGuide = lazy(() => import('./model-guide'));
+type Tab = 'overview' | 'predictions' | 'map' | 'model';
 const tabs = [
   { id: 'overview', label: 'Visão geral', Icon: LayoutDashboard },
   { id: 'predictions', label: 'Predições', Icon: ChartNoAxesCombined },
   { id: 'map', label: 'Análise espacial', Icon: Compass },
+  { id: 'model', label: 'Modelo e experimentos', Icon: FlaskConical },
 ] as const;
 const percent = (v: number | null) =>
   v === null
@@ -85,6 +89,22 @@ function Dashboard({ data }: { data: MeetingData }) {
     location.hash === '#methodology',
   );
   const [showObserved, setShowObserved] = useState(true);
+  const [resetVersion, setResetVersion] = useState(0);
+  const [resetFeedback, setResetFeedback] = useState(false);
+  useEffect(() => {
+    if (!resetFeedback) return;
+    const timer = window.setTimeout(() => setResetFeedback(false), 5000);
+    return () => window.clearTimeout(timer);
+  }, [resetFeedback, resetVersion]);
+  function resetView() {
+    setCity('3304557');
+    setFocusCity(null);
+    setWeek(weeks.at(-1)!);
+    setShowBaseline(false);
+    setShowObserved(true);
+    setResetVersion((version) => version + 1);
+    setResetFeedback(true);
+  }
   const year = week.slice(0, 4);
   const city = data.cities.find((c) => c.id === cityId)!;
   const rows = useMemo(
@@ -127,6 +147,7 @@ function Dashboard({ data }: { data: MeetingData }) {
       }
     >
       <PredictionMap
+        key={resetVersion}
         cities={data.cities}
         rows={rows}
         predictions={data.predictions}
@@ -265,14 +286,18 @@ function Dashboard({ data }: { data: MeetingData }) {
                   ? 'Monitoramento da dengue'
                   : tab === 'predictions'
                     ? 'Predições de dengue'
-                    : 'Análise espacial'}
+                    : tab === 'map'
+                      ? 'Análise espacial'
+                      : 'Modelo e experimentos'}
               </h1>
               <p>
                 {tab === 'overview'
                   ? 'Notificações previstas em cinco municípios.'
                   : tab === 'predictions'
                     ? 'Séries previstas e observadas por município.'
-                    : 'Predições municipais e indicadores por UDH.'}
+                    : tab === 'map'
+                      ? 'Predições municipais e indicadores por UDH.'
+                      : 'Formulação, atributos e avaliação temporal.'}
               </p>
             </div>
             <a
@@ -295,59 +320,89 @@ function Dashboard({ data }: { data: MeetingData }) {
               Metodologia <ArrowRight size={14} />
             </a>
           </div>
-          <div className="hm-filter-row">
-            <div className="hm-period">
-              <label htmlFor="hm-week">SEMANA DE REFERÊNCIA</label>
-              <div className="hm-period-controls">
-                <button
-                  aria-label="Semana anterior"
-                  disabled={weekIndex === 0}
-                  onClick={() => setWeek(weeks[weekIndex - 1])}
-                >
-                  <ChevronLeft size={17} />
-                </button>
+          {tab !== 'model' && (
+            <div className="hm-filter-row">
+              <div className="hm-period">
+                <label htmlFor="hm-week">SEMANA DE REFERÊNCIA</label>
+                <div className="hm-period-controls">
+                  <button
+                    aria-label="Semana anterior"
+                    disabled={weekIndex === 0}
+                    onClick={() => setWeek(weeks[weekIndex - 1])}
+                  >
+                    <ChevronLeft size={17} />
+                  </button>
+                  <select
+                    id="hm-week"
+                    value={week}
+                    onChange={(e) => setWeek(e.target.value)}
+                  >
+                    {weeks.map((w) => (
+                      <option key={w} value={w}>
+                        {date(w)}
+                      </option>
+                    ))}
+                  </select>
+                  <button
+                    aria-label="Próxima semana"
+                    disabled={weekIndex === weeks.length - 1}
+                    onClick={() => setWeek(weeks[weekIndex + 1])}
+                  >
+                    <ChevronRight size={17} />
+                  </button>
+                </div>
+              </div>
+              <div className="hm-window">
+                <span>JANELA PREVISTA · 4 SEMANAS</span>
+                <strong>
+                  {date(current.start)} <ArrowRight size={14} />{' '}
+                  {date(current.end)}
+                </strong>
+              </div>
+              <label className="hm-city-select">
+                CIDADE EM FOCO
                 <select
-                  id="hm-week"
-                  value={week}
-                  onChange={(e) => setWeek(e.target.value)}
+                  aria-label="Cidade em foco"
+                  value={cityId}
+                  onChange={(e) => selectCity(e.target.value)}
                 >
-                  {weeks.map((w) => (
-                    <option key={w} value={w}>
-                      {date(w)}
+                  {data.cities.map((c) => (
+                    <option key={c.id} value={c.id}>
+                      {c.name} · {c.uf}
                     </option>
                   ))}
                 </select>
+              </label>
+              <div className="hm-reset-control">
                 <button
-                  aria-label="Próxima semana"
-                  disabled={weekIndex === weeks.length - 1}
-                  onClick={() => setWeek(weeks[weekIndex + 1])}
+                  className="hm-reset"
+                  onClick={resetView}
+                  title="Restaura a última semana disponível, Rio de Janeiro, visão das cinco cidades, minigráficos e séries padrão; limpa as seleções de UDH e pausa a reprodução."
                 >
-                  <ChevronRight size={17} />
+                  <RotateCcw size={14} /> Restaurar visualização
                 </button>
+                <span
+                  className="hm-reset-feedback"
+                  role="status"
+                  aria-live="polite"
+                  aria-atomic="true"
+                >
+                  {resetFeedback ? 'Visualização restaurada.' : ''}
+                </span>
               </div>
             </div>
-            <div className="hm-window">
-              <span>JANELA PREVISTA · 4 SEMANAS</span>
-              <strong>
-                {date(current.start)} <ArrowRight size={14} />{' '}
-                {date(current.end)}
-              </strong>
-            </div>
-            <label className="hm-city-select">
-              CIDADE EM FOCO
-              <select
-                aria-label="Cidade em foco"
-                value={cityId}
-                onChange={(e) => selectCity(e.target.value)}
-              >
-                {data.cities.map((c) => (
-                  <option key={c.id} value={c.id}>
-                    {c.name} · {c.uf}
-                  </option>
-                ))}
-              </select>
-            </label>
-          </div>
+          )}
+          {tab === 'model' && (
+            <Suspense
+              fallback={
+                <p className="hm-guide-loading" role="status">
+                  Carregando ficha técnica…
+                </p>
+              }
+            >
+              <ModelGuide />
+            </Suspense>
+          )}
           {tab === 'overview' && (
             <>
               <section
@@ -821,6 +876,12 @@ function Dashboard({ data }: { data: MeetingData }) {
               </div>
               <div>
                 <h3>Modelo e avaliação</h3>
+                <button
+                  className="hm-model-link"
+                  onClick={() => navigate('model')}
+                >
+                  Ver modelo, variáveis e experimentos <ArrowRight size={14} />
+                </button>
                 <p>
                   {data.model}, configuração {data.sourceVersion}, com seleção
                   interna antes de 2024 e sem reajuste durante o teste. São 520
