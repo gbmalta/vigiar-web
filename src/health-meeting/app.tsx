@@ -228,10 +228,10 @@ function Dashboard({ data }: { data: MeetingData }) {
             <div className="hm-logo-slot">
               <img
                 className="hm-ciars-logo"
-                src={assetUrl('health-meeting/brand/ciars-logo.png')}
-                alt="CIARS"
-                width={243}
-                height={81}
+                src={assetUrl('health-meeting/brand/ciars-logo-transparent.png')}
+                alt="CIARS — Centro de Inteligência Artificial Aplicada à Saúde"
+                width={735}
+                height={339}
               />
             </div>
           </div>
