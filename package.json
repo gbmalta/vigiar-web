@@ -11,7 +11,7 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview --host 127.0.0.1",
     "check": "node scripts/verify-data.mjs && node scripts/verify-analytics.mjs",
-    "check:meeting": "node --experimental-strip-types scripts/verify-health-meeting.mjs",
+    "check:meeting": "node --experimental-strip-types scripts/verify-health-meeting.mjs && node --experimental-strip-types scripts/verify-inference.mjs",
     "review:meeting": "node scripts/review-health-meeting.mjs",
     "lint": "oxlint --deny-warnings components/atlas.tsx components/geo-map.tsx components/notification-trend.tsx components/dag-overview.tsx components/article-metrics.tsx hooks/use-map-tools.ts lib src vite.config.ts",
     "test:science": "python -m unittest discover -s scripts -p test_analytics.py -v",

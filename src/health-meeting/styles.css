@@ -2684,3 +2684,422 @@ small {
     font-size: 13px;
   }
 }
+
+/* Interactive inference: shared rules, direct inputs and a four-week result. */
+.hm-lab {
+  margin: 34px 0 38px;
+  padding: 30px 0 24px;
+  border-top: 2px solid #053a81;
+  border-bottom: 1px solid #cbd8df;
+}
+.hm-lab-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  color: #053a81;
+}
+.hm-lab-heading h2 {
+  margin: 9px 0 0;
+}
+.hm-lab > p {
+  max-width: 78ch;
+}
+.hm-lab-selectors {
+  display: flex;
+  gap: 28px;
+  padding: 18px 0 22px;
+  border-bottom: 1px solid #dce4e9;
+}
+.hm-lab label {
+  display: grid;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 550;
+  color: #25465b;
+}
+.hm-lab label > span,
+.hm-lab-climate-heading > span {
+  font-size: 11px;
+  font-weight: 400;
+  color: #657782;
+}
+.hm-lab-selectors label {
+  min-width: 210px;
+}
+.hm-lab input,
+.hm-lab select {
+  font: inherit;
+  color: #143950;
+  background: #fff;
+  border: 1px solid #c2d0d9;
+  border-radius: 5px;
+  min-height: 40px;
+  padding: 8px 10px;
+  width: 100%;
+  min-width: 0;
+  font-variant-numeric: tabular-nums;
+}
+.hm-lab input:focus-visible,
+.hm-lab select:focus-visible,
+.hm-lab button:focus-visible,
+.hm-lab summary:focus-visible,
+.hm-lab [tabindex]:focus-visible {
+  outline: 2px solid #087f73;
+  outline-offset: 3px;
+}
+.hm-lab-workspace {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.95fr) minmax(0, 1.65fr);
+  gap: 34px;
+  padding: 26px 0;
+}
+.hm-lab-inputs {
+  min-width: 0;
+  padding-right: 28px;
+  border-right: 1px solid #dce4e9;
+}
+.hm-lab-number {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+.hm-lab-number input {
+  font-size: 25px;
+  font-weight: 500;
+  max-width: 160px;
+}
+.hm-lab-number > span {
+  color: #657782;
+  font-size: 11px;
+}
+.hm-lab-inputs .hm-lab-input-note {
+  font-size: 11px;
+  line-height: 1.65;
+  color: #657782;
+  margin: 10px 0 22px;
+}
+.hm-lab-climate-heading {
+  display: grid;
+  gap: 5px;
+  margin-bottom: 14px;
+}
+.hm-lab-climate-heading strong {
+  font-size: 12px;
+  font-weight: 550;
+  color: #25465b;
+}
+.hm-lab-climate-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.hm-lab-climate-inputs label {
+  font-size: 11px;
+  align-content: start;
+  grid-template-rows: minmax(34px, auto) auto;
+}
+.hm-lab-reset {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #087f73;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid #c5dbd8;
+  padding: 8px 0;
+  font: inherit;
+  font-size: 11px;
+  cursor: pointer;
+}
+.hm-lab-feedback {
+  display: block;
+  margin-top: 5px;
+  min-height: 17px;
+  font-size: 10px;
+  color: #087f73;
+}
+.hm-lab-output {
+  min-width: 0;
+}
+.hm-lab-output-heading {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.hm-lab-output-heading > span:last-child {
+  color: #657782;
+  font-size: 10px;
+}
+.hm-lab-result {
+  display: flex;
+  align-items: center;
+  gap: 19px;
+  margin: 15px 0 12px;
+  color: #053a81;
+}
+.hm-lab-result > strong {
+  font-size: clamp(32px, 4.6vw, 56px);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -2px;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+.hm-lab-result > span {
+  font-size: 11px;
+  line-height: 1.8;
+  color: #536e7c;
+  flex-shrink: 0;
+}
+.hm-lab-output .hm-lab-comparison {
+  font-size: 11px;
+  line-height: 1.65;
+  margin: 0 0 8px;
+  color: #536e7c;
+}
+.hm-lab-chart {
+  margin: 8px 0 0;
+}
+.hm-lab-chart svg {
+  display: block;
+  width: 100%;
+  overflow: visible;
+}
+.hm-lab-chart text {
+  font-family: inherit;
+  font-size: 10px;
+  fill: #617987;
+}
+.hm-lab-chart figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  color: #657782;
+  font-size: 10px;
+}
+.hm-lab-chart .hm-lab-legend-prediction {
+  color: #087f73;
+}
+.hm-lab-chart > p {
+  font-size: 10px;
+  line-height: 1.65;
+  color: #657782;
+  margin: 8px 0 0;
+}
+.hm-lab-error {
+  border-left: 3px solid #a95523;
+  padding: 14px;
+  background: #fff8f1;
+  color: #87461f;
+}
+.hm-lab-detail {
+  border-top: 1px solid #dce4e9;
+  padding: 0;
+}
+.hm-lab-detail > summary {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 54px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 550;
+  color: #25465b;
+  list-style: none;
+}
+.hm-lab-detail > summary::-webkit-details-marker {
+  display: none;
+}
+.hm-lab-detail > summary::before {
+  content: '+';
+  width: 14px;
+  color: #087f73;
+  font-size: 17px;
+}
+.hm-lab-detail[open] > summary::before {
+  content: '−';
+}
+.hm-lab-detail > summary span {
+  margin-left: auto;
+  font-size: 10px;
+  color: #657782;
+  font-weight: 400;
+}
+.hm-lab-detail > p {
+  font-size: 12px;
+}
+.hm-lab-history-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 24px;
+  margin: 20px 0;
+}
+.hm-lab-history-table {
+  max-height: 320px;
+  overflow: auto;
+  border-bottom: 1px solid #dce4e9;
+}
+.hm-lab-history-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+  text-align: left;
+}
+.hm-lab-history-table caption {
+  text-align: left;
+  font-size: 11px;
+  font-weight: 550;
+  padding-bottom: 14px;
+  color: #25465b;
+}
+.hm-lab-history-table th,
+.hm-lab-history-table td {
+  padding: 7px 7px 7px 0;
+  border-bottom: 1px solid #edf0f2;
+  font-weight: 400;
+}
+.hm-lab-history-table thead th {
+  position: sticky;
+  top: 0;
+  background: #f5f8fa;
+  padding: 8px 6px;
+  color: #536e7c;
+  z-index: 1;
+}
+.hm-lab-history-table tbody th {
+  min-width: 94px;
+}
+.hm-lab-history-table small {
+  display: block;
+  color: #087f73;
+  font-size: 9px;
+}
+.hm-lab-history-table input {
+  padding: 6px;
+  min-height: 34px;
+  min-width: 78px;
+  max-width: 130px;
+}
+.hm-lab-calculation {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin: 15px 0 22px;
+}
+.hm-lab-calculation > span {
+  font-size: 11px;
+  color: #657782;
+}
+.hm-lab-calculation strong {
+  display: block;
+  font-size: 23px;
+  color: #053a81;
+  font-weight: 500;
+  margin-top: 8px;
+}
+.hm-lab .hm-lab-formula {
+  font-family: monospace;
+  padding: 16px 0;
+  border-block: 1px solid #dce4e9;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+.hm-lab-feature-values dl {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 30px;
+  margin: 16px 0;
+}
+.hm-lab-feature-values dl > div {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 8px 0;
+  border-bottom: 1px solid #e5ecef;
+}
+.hm-lab-feature-values dt {
+  min-width: 0;
+}
+.hm-lab-feature-values code {
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+.hm-lab-feature-values dd {
+  font-size: 11px;
+  margin: 0;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.hm-lab .hm-lab-source {
+  font-size: 10px;
+  line-height: 1.8;
+  color: #657782;
+  max-width: none;
+  margin: 20px 0 0;
+}
+.hm-lab-source a {
+  color: #087f73;
+  white-space: nowrap;
+}
+@media (max-width: 1050px) {
+  .hm-lab-workspace {
+    gap: 22px;
+    grid-template-columns: minmax(220px, 1fr) minmax(0, 1.4fr);
+  }
+  .hm-lab-inputs {
+    padding-right: 20px;
+  }
+  .hm-lab-result {
+    flex-wrap: wrap;
+    gap: 8px 16px;
+  }
+}
+@media (max-width: 760px) {
+  .hm-lab-workspace {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .hm-lab-inputs {
+    padding-right: 0;
+    padding-bottom: 20px;
+    border-right: 0;
+    border-bottom: 1px solid #dce4e9;
+  }
+  .hm-lab-selectors {
+    gap: 14px;
+  }
+  .hm-lab-selectors label {
+    min-width: 0;
+    width: 50%;
+    font-size: 11px;
+  }
+  .hm-lab-climate-inputs label {
+    grid-template-rows: auto auto;
+  }
+  .hm-lab-history-grid {
+    grid-template-columns: 1fr;
+  }
+  .hm-lab-detail > summary {
+    flex-wrap: wrap;
+    padding: 12px 0;
+    gap: 6px 10px;
+  }
+  .hm-lab-detail > summary span {
+    width: 100%;
+    margin: 0 0 0 24px;
+  }
+  .hm-lab-calculation {
+    grid-template-columns: 1fr 1fr;
+  }
+  .hm-lab-feature-values dl {
+    grid-template-columns: 1fr;
+  }
+  .hm-lab-result > strong {
+    font-size: 46px;
+  }
+}

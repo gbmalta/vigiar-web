@@ -60,6 +60,40 @@ nem dados individuais e não executa experimentos. O arquivo público
 `npm run check:meeting` reconcilia a ficha com as predições publicadas e checa
 as fronteiras temporais de treino e validação.
 
+## Simulador com o modelo congelado
+
+A aba técnica inclui inferência real da v44 no navegador. Município e semana
+selecionam o histórico de 2024–2025; as notificações da semana de referência e
+temperatura média/precipitação acumulada da semana anterior são editáveis.
+Uma seção expansível permite alterar as 53 semanas de notificações e as oito
+de clima, incluindo o valor de 52 semanas atrás. As 18 variáveis são calculadas
+automaticamente, com as mesmas transformações, parâmetros de pré-processamento,
+coeficientes, intercepto, limiares municipais e intensidade do modelo preservado.
+Não há ajuste, aproximação por outro modelo, consulta de previsões pré-calculadas
+para gerar cenários, nem envio das entradas a um servidor.
+
+O gráfico apresenta totais históricos móveis de quatro semanas e um único total
+previsto nas quatro semanas seguintes. Não distribui a saída em previsões
+semanais. Edições são cenários exploratórios, não efeitos causais nem previsões
+operacionais atuais. A seleção de outra cidade/data reinicia o histórico.
+Ausência climática segue a imputação do treino; notificações vazias, fracionárias
+ou negativas interrompem o cálculo. Datas sem histórico disponível não são oferecidas.
+
+`scripts/export-inference.py` verifica os hashes do artefato `model.joblib`, do
+dataset agregado e do código congelado antes de carregar o modelo local.
+Publica somente parâmetros numéricos e três campos semanais agregados por
+município (notificações, temperatura, precipitação) em `inference.json`.
+O binário e as fontes individuais não são publicados. A exportação opcional usa
+`scripts/requirements-inference.txt`; `.inference-tools/` é um ambiente local
+ignorado pelo Git. Não requer nem executa treino no repositório de pesquisa.
+
+A paridade cobre as 520 previsões salvas e 15 cenários editados calculados pelo
+estimador scikit-learn original, incluindo zeros e clima ausente. A maior
+diferença nas previsões históricas é 0,000012524 notificação, decorrente do
+arredondamento independente dos CSVs semanais e das features em dez algarismos
+significativos. Os testes JavaScript rodam em `npm run check:meeting`, inclusive
+no CI. A ficha registra proveniência e erro máximo da exportação.
+
 ## TypeSafe opcional
 
 `npm run review:meeting` executa revisão semântica de afirmações editoriais com Choice, via HTTP API v1, usando `TYPESAFE_API_KEY` somente no ambiente do processo. Envia apenas definições e metadados agregados. Salva o resultado em `tmp/`, nunca no pacote público; inclui duas afirmações falsas como controles. Não altera textos ou números automaticamente e não confunde confiança semântica com incerteza epidemiológica. Não foi executado sem uma chave configurada.

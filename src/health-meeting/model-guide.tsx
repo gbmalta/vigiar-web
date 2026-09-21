@@ -1,6 +1,7 @@
 import details from '../../public/health-meeting/model-details.json';
 import { assetUrl } from '@/lib/asset-url';
 import { date } from './data';
+import PredictionLab from './prediction-lab';
 
 const decimal = (v: number) =>
   v.toLocaleString('pt-BR', { maximumFractionDigits: 2 });
@@ -96,7 +97,9 @@ export default function ModelGuide() {
         </div>
       </dl>
 
-      <details className="hm-guide-section" open>
+      <PredictionLab />
+
+      <details className="hm-guide-section">
         <summary>
           <span>01</span> Como a predição é calculada
         </summary>
